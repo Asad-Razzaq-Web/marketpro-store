@@ -1,0 +1,1718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+   <link rel="shortcut icon" href="https://marketpro.template.wowtheme7.com/assets/images/logo/favicon.png" type="image/x-icon">
+    <title> MarketPro - E-commerce HTML Template | Index One</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- Full-Screen Preloader Overlay -->
+<div id="preloader">
+    <div class="preloader-graphic-wrap">
+        
+        <!-- Insert your animated loader image here -->
+        <img src="https://marketpro.template.wowtheme7.com/assets/images/icon/preloader.gif" alt="Loading..." class="loader-image">
+        
+    </div>
+</div>
+
+
+      <header>
+        <!-- TOP NAVBAR -->
+        <nav class="top-navbar">
+            <div class="top-navbar-container">
+                <!-- LEFT -->
+              <div class="sale-timer" data-countdown-target="November 20, 2027 13:37:00">
+    <span>Until the end of the sale:</span> 
+    <strong><span data-cd-days>551</span> Days</strong> 
+    <span data-cd-hours>16</span> Hours 
+    <span data-cd-minutes>34</span> Minutes 
+    <span data-cd-seconds>49</span> Sec.
+</div>
+
+
+                <!-- CENTER -->
+                <div class="offer-box">
+                    <div>Buy one get one free on <span class="highlight">first order</span></div>
+                    <div class="divider"></div>
+                    <a href="#" class="track-order">
+                        <i class="fa-solid fa-truck-fast"></i> Track Your Order
+                    </a>
+                </div>
+
+                <!-- RIGHT -->
+                <div class="nav-links">
+                    <a href="#">Order Tracking</a>
+                    <a href="#">About Us</a>
+                    <div class="dropdown"><span>Eng</span> <i class="fa-solid fa-chevron-down"></i></div>
+                    <div class="dropdown"><span>USD</span> <i class="fa-solid fa-chevron-down"></i></div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- MAIN NAVBAR --> 
+       <nav class="navbar"> 
+    <div class="container"> 
+        <div class="navbar-wrapper"> 
+            
+            <!-- LOGO (Left aligned) --> 
+            <img src="https://marketpro.template.wowtheme7.com/assets/images/logo/logo.png" alt="logo" class="navbar-logo"/> 
+
+            <!-- SEARCH (Center block on Desktop, hidden on Mobile) --> 
+            <div class="search-area"> 
+                <form class="search-box"> 
+                    <div class="category"> 
+                        <span>All categories</span> 
+                        <i class="fa-solid fa-chevron-down"></i> 
+                    </div> 
+                    <input type="text" class="search-input" placeholder="Search for products, categories or brands..."/> 
+                    <button class="search-btn" type="submit"> 
+                        <i class="fa-solid fa-magnifying-glass"></i> 
+                    </button> 
+                </form> 
+            </div> 
+
+            <!-- ACTIONS (All icons cluster right-aligned) --> 
+            <div class="nav-actions"> 
+                
+                <!-- Mobile Search Trigger Icon inside the action group -->
+                <button class="mobile-search-toggle" id="openMobileSearch" type="button" aria-label="Open Search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <a href="#" class="nav-item"> 
+                    <i class="fa-regular fa-user"></i> 
+                    <span>Register</span> 
+                </a> 
+                <a href="#" class="nav-item"> 
+                    <div class="icon-badge"> 
+                        <i class="fa-regular fa-heart"></i> 
+                        <span class="badge">2</span> 
+                    </div> 
+                    <span>Wishlist</span> 
+                </a> 
+                <a href="#" class="nav-item"> 
+                    <div class="icon-badge"> 
+                        <i class="fa-solid fa-cart-shopping"></i> 
+                        <span class="badge">2</span> 
+                    </div> 
+                    <span>Cart</span> 
+                </a> 
+            </div> 
+
+            <!-- Mobile Search Popup Overlay Layer -->
+            <div class="mobile-search-popup" id="mobileSearchPopup" aria-hidden="true">
+                <div class="mobile-search-popup-content">
+                    <button class="mobile-search-close" id="closeMobileSearch" type="button" aria-label="Close Search">&times;</button>
+                    <form class="search-box">
+                        <input type="text" class="search-input" placeholder="Search products..."/>
+                        <button class="search-btn" type="submit">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+        </div> 
+    </div> 
+        </nav>
+
+    </header>
+
+
+<!-- PLACED HERE: Directly inside the body tag so it can stick across the whole page -->
+<nav class="bottom-navbar"> 
+    <div class="container"> 
+        <div class="bottom-nav-wrapper"> 
+            
+            <!-- Category Button Wrapper (Now with the Hamburger button integrated next to it) --> 
+            <div class="category-dropdown" style="display: inline-flex; align-items: center; gap: 25px;"> 
+                
+                <!-- ADDED: Mobile Hamburger Trigger Button (Visible strictly on mobile screens) -->
+                <button class="mobile-menu-toggle" id="openMobileMenu" type="button" aria-label="Open Navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <button class="category-btn"> 
+                    <i class="fa-solid fa-border-all"></i> 
+                    <span>Browse Categories</span> 
+                    <i class="fa-solid fa-chevron-down"></i> 
+                </button> 
+            </div> 
+
+            <!-- Main Menu with Badges (Completely Untouched) --> 
+            <ul class="main-menu"> 
+                <li><a href="#" class="active">Home <i class="fa-solid fa-chevron-down"></i></a></li> 
+                <li><a href="#">Shop <i class="fa-solid fa-chevron-down"></i></a></li> 
+                <li class="has-badge"> 
+                    <span class="badge-new orange">New</span> 
+                    <a href="#">Pages <i class="fa-solid fa-chevron-down"></i></a> 
+                </li> 
+                <li class="has-badge"> 
+                    <span class="badge-new purple">New</span> 
+                    <a href="#">Vendors <i class="fa-solid fa-chevron-down"></i></a> 
+                </li> 
+                <li><a href="#">Blog <i class="fa-solid fa-chevron-down"></i></a></li> 
+                <li><a href="#">Contact Us</a></li> 
+            </ul> 
+
+            <!-- Support Section (Completely Untouched) --> 
+            <div class="nav-support"> 
+                <i class="fa-solid fa-headset"></i> 
+                <div class="support-text"> 
+                    <span>Need any Help! call Us</span> 
+                    <a href="tel:+2871382023">+(2) 871 382 023</a> 
+                </div> 
+            </div> 
+
+            <!-- ==========================================================================
+               ADDED: SEAMLESS SIDEBAR DRAWER OVERLAY (Hidden by default, mirrors your references)
+               ========================================================================== */ -->
+            <div class="mobile-sidebar-drawer" id="mobileSidebarDrawer" aria-hidden="true">
+                <!-- Click-to-close blur layer background cover -->
+                <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+                
+                <!-- Inner Panel Content Window -->
+                <div class="sidebar-panel">
+                    
+                    <!-- Top Branded Segment Wrapper -->
+                    <div class="sidebar-header">
+                        <img src="https://marketpro.template.wowtheme7.com/assets/images/logo/logo.png" alt="Marketpro Logo" class="sidebar-logo">
+                        <button class="sidebar-close-btn" id="closeMobileMenu" type="button" aria-label="Close Navigation">&times;</button>
+                    </div>
+
+                    <!-- Left side mobile sliding links stack chain -->
+                    <ul class="sidebar-menu">
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">Home <i class="fa-solid fa-chevron-down"></i></a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">Shop <i class="fa-solid fa-chevron-down"></i></a>
+                        </li>
+                        <li class="sidebar-item">
+                            <span class="sidebar-badge orange">New</span>
+                            <a href="#" class="sidebar-link">Pages <i class="fa-solid fa-chevron-down"></i></a>
+                        </li>
+                        <li class="sidebar-item">
+                            <span class="sidebar-badge purple">New</span>
+                            <a href="#" class="sidebar-link">Vendors <i class="fa-solid fa-chevron-down"></i></a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">Blog <i class="fa-solid fa-chevron-down"></i></a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link no-chevron">Contact Us</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+
+        </div> 
+    </div> 
+</nav>
+
+
+
+    <!-- main section -->
+     <main>
+<!-- Exact Match Scroll to Top Structure -->
+<button class="scroll-top" id="scrollTopBtn" aria-label="Scroll to top">
+    <!-- SVG Circle Track and Dynamic Filling Stroke Line -->
+    <svg class="progress-circle" width="50" height="50" viewBox="0 0 50 50">
+        <circle class="circle-bg" cx="25" cy="25" r="22"></circle>
+        <circle class="circle-progress" cx="25" cy="25" r="22"></circle>
+    </svg>
+    <!-- Sharp Independent Floating Arrow Core Icon -->
+    <i class="fa-solid fa-arrow-up scroll-arrow-icon"></i>
+</button>
+
+
+<section class="hero-section">
+    <div class="container">
+        <div class="hero-wrapper">
+            
+            <!-- Left Content -->
+            <div class="hero-content">
+                <span class="hero-subtitle">Save Up To 50% Off On Your First Order</span>
+                <h1 class="hero-title">Daily Grocery Order and Get <span>Express Delivery</span></h1>
+                <div class="hero-action">
+                    <a href="#" class="btn-explore">Explore Shop <i class="fa-solid fa-cart-shopping"></i></a>
+                    <span class="hero-price">Starting at <strong>$60.99</strong></span>
+                </div>
+            </div>
+
+            <!-- Right Image Container (Updated for Sliding/Fading) -->
+            <div class="hero-image">
+                <!-- Image 1 (Active by default) -->
+                <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/banner-img3.png" alt="Groceries" class="slide-img active">
+                <!-- Image 2 (Your new gift basket image - replace with your actual image URL) -->
+                <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/banner-img1.png" alt="Special Offer Gift Basket" class="slide-img">
+                <!-- Add more images here if needed -->
+            </div>
+
+            <!-- Navigation Arrows -->
+            <button class="slider-arrow prev" id="heroPrevBtn"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="slider-arrow next" id="heroNextBtn"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+    </div>
+    
+    <!-- Bottom Scroll Down Icon -->
+    <div class="scroll-down">
+        <div class="scroll-icon">
+            <i class="fa-solid fa-arrow-down-long"></i>
+        </div>
+    </div>
+</section>
+
+<section class="categories-section"> 
+    <div class="container"> 
+        <div class="slider-wrapper"> 
+            <!-- Hide arrows since the track is fully automated and infinite --> 
+            <!-- Main Window --> 
+            <div class="category-slider"> 
+                <!-- Wrapper containing 2 identical tracks for seamless looping --> 
+                <div class="slider-track"> 
+                    
+                    <!-- ==========================================
+                       ORIGINAL ITEMS (Track 1 - 6 Items Total) 
+                       ========================================== --> 
+                    <div class="category-item"> 
+                        <div class="category-img"><img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/feature-img5.png" alt="Image"></div> 
+                        <h3 class="category-name">Animals Food</h3> 
+                        <span class="product-count">125+ Products</span> 
+                    </div> 
+                    <div class="category-item"> 
+                        <div class="category-img"><img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/feature-img6.png" alt="Image"></div> 
+                        <h3 class="category-name">Fresh Fruits</h3> 
+                        <span class="product-count">125+ Products</span> 
+                    </div> 
+                    <div class="category-item"> 
+                        <div class="category-img"><img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/feature-img7.png" alt="Image"></div> 
+                        <h3 class="category-name">Yummy Candy</h3> 
+                        <span class="product-count">125+ Products</span> 
+                    </div> 
+                    <div class="category-item"> 
+                        <div class="category-img"><img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/feature-img2.png" alt="Image"></div> 
+                        <h3 class="category-name">Fish & Meats</h3> 
+                        <span class="product-count">125+ Products</span> 
+                    </div> 
+                    <div class="category-item"> 
+                        <div class="category-img"><img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/feature-img8.png" alt="Image"></div> 
+                        <h3 class="category-name">Dairy & Eggs</h3> 
+                        <span class="product-count">125+ Products</span> 
+                    </div> 
+                    <div class="category-item"> 
+                        <div class="category-img"><img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/feature-img9.png" alt="Image"></div> 
+                        <h3 class="category-name">Snacks</h3> 
+                        <span class="product-count">125+ Products</span> 
+                    </div> 
+
+                    <!-- ==========================================
+                       DUPLICATED ITEMS (Track 2 - FIXED EXACT CLONE) 
+                       ========================================== --> 
+                    <div class="category-item"> 
+                        <div class="category-img"><img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/feature-img5.png" alt="Image"></div> 
+                        <h3 class="category-name">Animals Food</h3> 
+                        <span class="product-count">125+ Products</span> 
+                    </div> 
+                    <div class="category-item"> 
+                        <div class="category-img"><img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/feature-img6.png" alt="Image"></div> 
+                        <h3 class="category-name">Fresh Fruits</h3> 
+                        <span class="product-count">125+ Products</span> 
+                    </div> 
+                    <div class="category-item"> 
+                        <div class="category-img"><img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/feature-img7.png" alt="Image"></div> 
+                        <h3 class="category-name">Yummy Candy</h3> 
+                        <span class="product-count">125+ Products</span> 
+                    </div> 
+                    <div class="category-item"> 
+                        <div class="category-img"><img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/feature-img2.png" alt="Image"></div> 
+                        <h3 class="category-name">Fish & Meats</h3> 
+                        <span class="product-count">125+ Products</span> 
+                    </div> 
+                    <div class="category-item"> 
+                        <div class="category-img"><img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/feature-img8.png" alt="Image"></div> 
+                        <h3 class="category-name">Dairy & Eggs</h3> 
+                        <span class="product-count">125+ Products</span> 
+                    </div> 
+                    <div class="category-item"> 
+                        <div class="category-img"><img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/feature-img9.png" alt="Image"></div> 
+                        <h3 class="category-name">Snacks</h3> 
+                        <span class="product-count">125+ Products</span> 
+                    </div> 
+
+                </div> 
+            </div> 
+        </div> 
+    </div> 
+</section>
+
+
+<section class="banners-section">
+    <div class="container">
+        <div class="banner-grid">
+            <!-- Banner 1 -->
+            <div class="banner-card bg-light-blue">
+                <div class="banner-text">
+                    <h3>Everyday Fresh Meat</h3>
+                    <p>Starting at <span>$60.99</span></p>
+                    <a href="#" class="btn-shop">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/promotional-banner-img4.png" alt="Fresh Meat">
+            </div>
+
+            <!-- Banner 2 -->
+            <div class="banner-card bg-light-grey">
+                <div class="banner-text">
+                    <h3>Daily Fresh Vegetables</h3>
+                    <p>Starting at <span>$60.99</span></p>
+                    <a href="#" class="btn-shop">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/promotional-banner-img2.png" alt="Vegetables">
+            </div>
+
+            <!-- Banner 3 -->
+            <div class="banner-card bg-light-white">
+                <div class="banner-text">
+                    <h3>Everyday Fresh Milk</h3>
+                    <p>Starting at <span>$60.99</span></p>
+                    <a href="#" class="btn-shop">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/promotional-banner-img1.png" alt="Milk">
+            </div>
+
+            <!-- Banner 4 -->
+            <div class="banner-card bg-light-cream">
+                <div class="banner-text">
+                    <h3>Everyday Fresh Fruits</h3>
+                    <p>Starting at <span>$60.99</span></p>
+                    <a href="#" class="btn-shop">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/promotional-banner-img3.png" alt="Fruits">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="flash-sales">
+    <div class="container">
+        <!-- Section Header -->
+        <div class="section-header">
+            <h2 class="section-title">Flash Sales Today</h2>
+            <div class="header-actions">
+                <a href="#" class="view-all">View All Deals</a>
+                <div class="slider-arrows">
+                    <!-- Added distinct programmatic tracking IDs -->
+                    <button class="arrow-btn prev-flash" id="flashPrevBtn" aria-label="Slide Left"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="arrow-btn next-flash" id="flashNextBtn" aria-label="Slide Right"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bounding Slider Frame Wrapper Window -->
+        <div class="flash-slider-wrapper">
+            <div class="flash-slider-viewport">
+                <div class="flash-track">
+                    
+                    <!-- ORIGINAL ITEMS (Track 1) -->
+                    <div class="product-card" data-index="0">
+                        <div class="product-img-wrapper">
+                            <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/product-img30.png" alt="Shrimp">
+                            <button class="add-btn">Add <i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-price"><span class="current">$14.99 </span><span class="qty">/Qty</span><span class="old">$28.99</span></div>
+                            <div class="product-rating"><span class="stars">4.8 <i class="fa-solid fa-star"></i></span><span class="count">(17k)</span></div>
+                            <h3 class="product-name">Taylor Farms Broccoli Florets Vegetables</h3>
+                            <div class="product-progress"><div class="progress-bar"><div class="fill" style="width: 50%;"></div></div><span class="sold-text">Sold: 18/35</span></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-index="1">
+                        <div class="product-img-wrapper">
+                            <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/product-img29.png" alt="Buns">
+                            <button class="add-btn">Add <i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-price"><span class="current">$14.99 </span><span class="qty">/Qty</span><span class="old">$28.99</span></div>
+                            <div class="product-rating"><span class="stars">4.8 <i class="fa-solid fa-star"></i></span><span class="count">(17k)</span></div>
+                            <h3 class="product-name">Taylor Farms Broccoli Florets Vegetables</h3>
+                            <div class="product-progress"><div class="progress-bar"><div class="fill" style="width: 50%;"></div></div><span class="sold-text">Sold: 18/35</span></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-index="2">
+                        <div class="product-img-wrapper">
+                            <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/product-img27.png" alt="Vegetables">
+                            <button class="add-btn">Add <i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-price"><span class="current">$14.99 </span><span class="qty">/Qty</span><span class="old">$28.99</span></div>
+                            <div class="product-rating"><span class="stars">4.8 <i class="fa-solid fa-star"></i></span><span class="count">(17k)</span></div>
+                            <h3 class="product-name">Taylor Farms Broccoli Florets Vegetables</h3>
+                            <div class="product-progress"><div class="progress-bar"><div class="fill" style="width: 50%;"></div></div><span class="sold-text">Sold: 18/35</span></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-index="3">
+                        <div class="product-img-wrapper">
+                            <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/product-img28.png" alt="Noodles">
+                            <button class="add-btn">Add <i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-price"><span class="current">$14.99 </span><span class="qty">/Qty</span><span class="old">$28.99</span></div>
+                            <div class="product-rating"><span class="stars">4.8 <i class="fa-solid fa-star"></i></span><span class="count">(17k)</span></div>
+                            <h3 class="product-name">Taylor Farms Broccoli Florets Vegetables</h3>
+                            <div class="product-progress"><div class="progress-bar"><div class="fill" style="width: 50%;"></div></div><span class="sold-text">Sold: 18/35</span></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-index="4">
+                        <div class="product-img-wrapper">
+                            <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/product-img13.png" alt="Bread">
+                            <button class="add-btn">Add <i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-price"><span class="current">$14.99 </span><span class="qty">/Qty</span><span class="old">$28.99</span></div>
+                            <div class="product-rating"><span class="stars">4.8 <i class="fa-solid fa-star"></i></span><span class="count">(17k)</span></div>
+                            <h3 class="product-name">Taylor Farms Broccoli Florets Vegetables</h3>
+                            <div class="product-progress"><div class="progress-bar"><div class="fill" style="width: 50%;"></div></div><span class="sold-text">Sold: 18/35</span></div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-index="5"><div class="product-img-wrapper"><img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/product-img3.png" alt=""><button class="add-btn">Add <i class="fa-solid fa-cart-shopping"></i></button></div><div class="product-info"><div class="product-price"><span class="current">$14.99 </span><span class="qty">/Qty</span><span class="old">$28.99</span></div><div class="product-rating"><span class="stars">4.8 <i class="fa-solid fa-star"></i></span><span class="count">(17k)</span></div><h3 class="product-name">Taylor Farms Broccoli Florets Vegetables</h3><div class="product-progress"><div class="progress-bar"><div class="fill" style="width: 50%;"></div></div><span class="sold-text">Sold: 18/35</span></div></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="offers-section">
+    <div class="container">
+        <div class="offers-grid">
+            
+            <!-- LEFT CARD: Now with Background Image Fit -->
+           <div class="offer-card tech-offer" data-countdown-target="December 31, 2027 23:59:59"> 
+    <div class="offer-content"> 
+        <h3 class="offer-title">X-Connect Smart Television</h3> 
+        <p class="offer-subtitle">Time remaining until the end of the offer.</p> 
+        
+        <div class="countdown"> 
+            <!-- The engine updates only the text inside the spans, leaving the " D", " H", labels intact -->
+            <div class="time-box"><span data-cd-days>596</span> D</div> 
+            <div class="time-box"><span data-cd-hours>14</span> H</div> 
+            <div class="time-box"><span data-cd-minutes>52</span> M</div> 
+            <div class="time-box"><span data-cd-seconds>19</span> S</div> 
+        </div> 
+        
+        <a href="#" class="btn-shop-now">Shop Now <i class="fa-solid fa-arrow-right"></i></a> 
+    </div> 
+</div>
+
+
+            <!-- RIGHT CARD: (Already had background image) -->
+          <div class="offer-card combo-offer" data-countdown-target="December 25, 2027 18:00:00"> 
+    <div class="offer-content"> 
+        <h3 class="offer-title">Vegetables Combo Box</h3> 
+        <p class="offer-subtitle">Time remaining until the end of the offer.</p> 
+        
+        <div class="countdown"> 
+            <!-- The engine modifies only the digits, leaving your blue style classes and label text fully intact -->
+            <div class="time-box blue"><span data-cd-days>586</span> D</div> 
+            <div class="time-box blue"><span data-cd-hours>14</span> H</div> 
+            <div class="time-box blue"><span data-cd-minutes>52</span> M</div> 
+            <div class="time-box blue"><span data-cd-seconds>19</span> S</div> 
+        </div> 
+        
+        <a href="#" class="btn-shop-now green">Shop Now <i class="fa-solid fa-arrow-right"></i></a> 
+    </div> 
+</div>
+
+
+        </div>
+    </div>
+</section>
+
+<!-- RECOMMENDED PRODUCT SECTION START -->
+<section class="rfy-section">
+    <div class="rfy-container">
+        
+        <!-- Section Header -->
+        <header class="rfy-header">
+            <h2 class="rfy-section-title">Recommended for you</h2>
+            <nav class="rfy-categories-nav">
+                <button class="rfy-category-btn rfy-active">All</button>
+                <button class="rfy-category-btn">Grocery</button>
+                <button class="rfy-category-btn">Fruits</button>
+                <button class="rfy-category-btn">Juices</button>
+                <button class="rfy-category-btn">Vegetables</button>
+                <button class="rfy-category-btn">Snacks</button>
+                <button class="rfy-category-btn">Organic Foods</button>
+            </nav>
+        </header>
+
+        <!-- Dynamic Responsive Product Grid Layout -->
+        <div class="rfy-product-grid">
+            
+            <!-- Card 1 -->
+            <div class="rfy-product-card">
+                <div class="rfy-status-badge rfy-badge-new">New</div>
+                <div class="rfy-image-wrapper">
+                    <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/product-img7.png" alt="Product">
+                </div>
+                <div class="rfy-card-body">
+                    <h3 class="rfy-product-name">C-500 Antioxidant Protect Dietary...</h3>
+                    <p class="rfy-merchant-name">By Lucky Supermarket</p>
+                    <div class="rfy-pricing-row">
+                        <span class="rfy-current-price">$14.99</span>
+                        <span class="rfy-price-unit">/Qty</span>
+                        <span class="rfy-old-price">$28.99</span>
+                    </div>
+                    <div class="rfy-ratings-row">
+                        <span class="rfy-star-icon">★</span>
+                        <span class="rfy-score">4.8</span>
+                        <span class="rfy-count">(17k)</span>
+                    </div>
+                </div>
+                <button class="rfy-add-cart-btn">Add To Cart<i class="fa-solid fa-cart-shopping"></i></button>
+            </div>
+
+            <!-- Card 2 (With Selected Blue Border and Sale Badge) -->
+            <div class="rfy-product-card rfy-selected-state">
+                <div class="rfy-status-badge rfy-badge-sale">Sale 50%</div>
+                <div class="rfy-image-wrapper">
+                    <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/product-img8.png" alt="Product">
+                </div>
+                <div class="rfy-card-body">
+                    <h3 class="rfy-product-name">Marcel's Modern Pantry Almond Unsweetened</h3>
+                    <p class="rfy-merchant-name">By Lucky Supermarket</p>
+                    <div class="rfy-pricing-row">
+                        <span class="rfy-current-price">$14.99</span>
+                        <span class="rfy-price-unit">/Qty</span>
+                        <span class="rfy-old-price">$28.99</span>
+                    </div>
+                    <div class="rfy-ratings-row">
+                        <span class="rfy-star-icon">★</span>
+                        <span class="rfy-score">4.8</span>
+                        <span class="rfy-count">(17k)</span>
+                    </div>
+                </div>
+                <button class="rfy-add-cart-btn rfy-highlighted-btn">Add To Cart <i class="fa-solid fa-cart-shopping"></i></button>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="rfy-product-card">
+                <div class="rfy-status-badge rfy-badge-sale">Sale 50%</div>
+                <div class="rfy-image-wrapper">
+                    <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/product-img9.png" alt="Product">
+                </div>
+                <div class="rfy-card-body">
+                    <h3 class="rfy-product-name">O Organics Milk, Whole, Vitamin D</h3>
+                    <p class="rfy-merchant-name">By Lucky Supermarket</p>
+                    <div class="rfy-pricing-row">
+                        <span class="rfy-current-price">$14.99</span>
+                        <span class="rfy-price-unit">/Qty</span>
+                        <span class="rfy-old-price">$28.99</span>
+                    </div>
+                    <div class="rfy-ratings-row">
+                        <span class="rfy-star-icon">★</span>
+                        <span class="rfy-score">4.8</span>
+                        <span class="rfy-count">(17k)</span>
+                    </div>
+                </div>
+                <button class="rfy-add-cart-btn">Add To Cart <i class="fa-solid fa-cart-shopping"></i></button>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="rfy-product-card">
+                <div class="rfy-status-badge rfy-badge-best">Best Sale</div>
+                <div class="rfy-image-wrapper">
+                    <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/product-img10.png" alt="Product">
+                </div>
+                <div class="rfy-card-body">
+                    <h3 class="rfy-product-name">Whole Grains and Seeds Organic Bread</h3>
+                    <p class="rfy-merchant-name">By Lucky Supermarket</p>
+                    <div class="rfy-pricing-row">
+                        <span class="rfy-current-price">$14.99</span>
+                        <span class="rfy-price-unit">/Qty</span>
+                        <span class="rfy-old-price">$28.99</span>
+                    </div>
+                    <div class="rfy-ratings-row">
+                        <span class="rfy-star-icon">★</span>
+                        <span class="rfy-score">4.8</span>
+                        <span class="rfy-count">(17k)</span>
+                    </div>
+                </div>
+                <button class="rfy-add-cart-btn">Add To Cart <i class="fa-solid fa-cart-shopping"></i></button>
+            </div>
+
+            
+            <!-- Card 5 -->
+            <div class="rfy-product-card">
+                <div class="rfy-status-badge rfy-badge-new">New</div>
+                <div class="rfy-image-wrapper">
+                    <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/product-img11.png" alt="Product">
+                </div>
+                <div class="rfy-card-body">
+                    <h3 class="rfy-product-name">Lucerne Yogurt, Lowfat, Strawberry</h3>
+                    <p class="rfy-merchant-name">By Lucky Supermarket</p>
+                    <div class="rfy-pricing-row">
+                        <span class="rfy-current-price">$14.99</span>
+                        <span class="rfy-price-unit">/Qty</span>
+                        <span class="rfy-old-price">$28.99</span>
+                    </div>
+                    <div class="rfy-ratings-row">
+                        <span class="rfy-star-icon">★</span>
+                        <span class="rfy-score">4.8</span>
+                        <span class="rfy-count">(17k)</span>
+                    </div>
+                </div>
+                <button class="rfy-add-cart-btn">Add To Cart <i class="fa-solid fa-cart-shopping"></i></button>
+            </div>
+            
+            <!-- Card 6 -->
+            <div class="rfy-product-card">
+                <div class="rfy-image-wrapper">
+                    <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/product-img12.png" alt="Product">
+                </div>
+                <div class="rfy-card-body">
+                    <h3 class="rfy-product-name">Lucerne Yogurt, Lowfat, Strawberry</h3>
+                    <p class="rfy-merchant-name">By Lucky Supermarket</p>
+                    <div class="rfy-pricing-row">
+                        <span class="rfy-current-price">$14.99</span>
+                        <span class="rfy-price-unit">/Qty</span>
+                        <span class="rfy-old-price">$28.99</span>
+                    </div>
+                    <div class="rfy-ratings-row">
+                        <span class="rfy-star-icon">★</span>
+                        <span class="rfy-score">4.8</span>
+                        <span class="rfy-count">(17k)</span>
+                    </div>
+                </div>
+                <button class="rfy-add-cart-btn">Add To Cart <i class="fa-solid fa-cart-shopping"></i></button>
+            </div>
+            
+            <!-- Card 7 -->
+            <div class="rfy-product-card">
+                <div class="rfy-status-badge rfy-badge-best">Best Sale</div>
+                <div class="rfy-image-wrapper">
+                    <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/product-img13.png" alt="Product">
+                </div>
+                <div class="rfy-card-body">
+                    <h3 class="rfy-product-name">Lucerne Yogurt, Lowfat, Strawberry</h3>
+                    <p class="rfy-merchant-name">By Lucky Supermarket</p>
+                    <div class="rfy-pricing-row">
+                        <span class="rfy-current-price">$14.99</span>
+                        <span class="rfy-price-unit">/Qty</span>
+                        <span class="rfy-old-price">$28.99</span>
+                    </div>
+                    <div class="rfy-ratings-row">
+                        <span class="rfy-star-icon">★</span>
+                        <span class="rfy-score">4.8</span>
+                        <span class="rfy-count">(17k)</span>
+                    </div>
+                </div>
+                <button class="rfy-add-cart-btn">Add To Cart <i class="fa-solid fa-cart-shopping"></i></button>
+            </div>
+            
+            <!-- Card 8 -->
+            <div class="rfy-product-card">
+                <div class="rfy-status-badge rfy-badge-new">New</div>
+                <div class="rfy-image-wrapper">
+                    <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/product-img14.png" alt="Product">
+                </div>
+                <div class="rfy-card-body">
+                    <h3 class="rfy-product-name">Lucerne Yogurt, Lowfat, Strawberry</h3>
+                    <p class="rfy-merchant-name">By Lucky Supermarket</p>
+                    <div class="rfy-pricing-row">
+                        <span class="rfy-current-price">$14.99</span>
+                        <span class="rfy-price-unit">/Qty</span>
+                        <span class="rfy-old-price">$28.99</span>
+                    </div>
+                    <div class="rfy-ratings-row">
+                        <span class="rfy-star-icon">★</span>
+                        <span class="rfy-score">4.8</span>
+                        <span class="rfy-count">(17k)</span>
+                    </div>
+                </div>
+                <button class="rfy-add-cart-btn">Add To Cart <i class="fa-solid fa-cart-shopping"></i></button>
+            </div>
+            
+            <!-- Card 9 -->
+            <div class="rfy-product-card">
+                <div class="rfy-status-badge rfy-badge-sale">Sale 50%</div>
+                <div class="rfy-image-wrapper">
+                    <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/product-img15.png" alt="Product">
+                </div>
+                <div class="rfy-card-body">
+                    <h3 class="rfy-product-name">Lucerne Yogurt, Lowfat, Strawberry</h3>
+                    <p class="rfy-merchant-name">By Lucky Supermarket</p>
+                    <div class="rfy-pricing-row">
+                        <span class="rfy-current-price">$14.99</span>
+                        <span class="rfy-price-unit">/Qty</span>
+                        <span class="rfy-old-price">$28.99</span>
+                    </div>
+                    <div class="rfy-ratings-row">
+                        <span class="rfy-star-icon">★</span>
+                        <span class="rfy-score">4.8</span>
+                        <span class="rfy-count">(17k)</span>
+                    </div>
+                </div>
+                <button class="rfy-add-cart-btn">Add To Cart <i class="fa-solid fa-cart-shopping"></i></button>
+            </div>
+            
+            <!-- Card 10 -->
+            <div class="rfy-product-card">
+                <div class="rfy-status-badge rfy-badge-best">Best sale</div>
+                <div class="rfy-image-wrapper">
+                    <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/product-img16.png" alt="Product">
+                </div>
+                <div class="rfy-card-body">
+                    <h3 class="rfy-product-name">Lucerne Yogurt, Lowfat, Strawberry</h3>
+                    <p class="rfy-merchant-name">By Lucky Supermarket</p>
+                    <div class="rfy-pricing-row">
+                        <span class="rfy-current-price">$14.99</span>
+                        <span class="rfy-price-unit">/Qty</span>
+                        <span class="rfy-old-price">$28.99</span>
+                    </div>
+                    <div class="rfy-ratings-row">
+                        <span class="rfy-star-icon">★</span>
+                        <span class="rfy-score">4.8</span>
+                        <span class="rfy-count">(17k)</span>
+                    </div>
+                </div>
+                <button class="rfy-add-cart-btn">Add To Cart <i class="fa-solid fa-cart-shopping"></i></button>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<!-- PROMO CARDS SECTION -->
+<section class="store-promotions-section">
+    <div class="promo-cards-container">
+        
+        <!-- Left Card (Craft Beer Promotion) -->
+        <article class="promo-card promo-card-beer">
+            <div class="promo-card-content">
+                <!-- Replace badge-url with your local badge image path -->
+                <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/offer-logo.png" alt="Nature Food Badge" class="promo-badge">
+                <h2 class="promo-title">$5 off your first order</h2>
+                <p class="promo-schedule">Delivery by 6:15am <span class="promo-expiry">Expire Aug 5</span></p>
+                <a href="#" class="promo-btn promo-btn-green">Shop Now &rarr;</a>
+            </div>
+        </article>
+
+        <!-- Right Card (Milk/Juice Promotion) -->
+        <article class="promo-card promo-card-milk">
+            <div class="promo-card-content">
+                <!-- Replace badge-url with your local badge image path -->
+                <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/offer-logo.png" alt="Nature Food Badge" class="promo-badge">
+                <h2 class="promo-title">$5 off your first order</h2>
+                <p class="promo-schedule">Delivery by 6:15am <span class="promo-expiry promo-expiry-highlight">Expire Aug 5</span></p>
+                <a href="#" class="promo-btn promo-btn-white">Shop Now &rarr;</a>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<section class="hot-deals-section">
+    <div class="hd-container">
+        
+        <!-- Section Header Area -->
+        <header class="hd-header">
+            <h2 class="hd-section-title">Hot Deals Todays</h2>
+            <div class="hd-header-actions">
+                <a href="#" class="hd-view-all">View All Deals</a>
+                <div class="hd-slider-arrows">
+                    <button class="hd-arrow-btn hd-prev" aria-label="Previous slide">&#10094;</button>
+                    <button class="hd-arrow-btn hd-next" aria-label="Next slide">&#10095;</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <div class="hd-main-layout">
+            
+            <!-- Left Banner Card (Deals of the day) -->
+        <div class="hd-banner-card" data-countdown-target="November 12, 2027 23:59:59"> 
+    <div class="hd-banner-content"> 
+        <span class="hd-banner-badge">Medical equipment</span> 
+        <h3 class="hd-banner-title">Deals of the day</h3> 
+        <p class="hd-banner-subtitle">Save up to 50% off on your first order</p> 
+        
+        <!-- Countdown Elements --> 
+        <div class="hd-countdown"> 
+            <!-- The engine modifies only the digits inside the span, preserving your strong text and labels -->
+            <div class="hd-time-box"><strong><span data-cd-days>543</span> D</strong></div> 
+            <div class="hd-time-box"><strong><span data-cd-hours>12</span> H</strong></div> 
+            <div class="hd-time-box"><strong><span data-cd-minutes>39</span> M</strong></div> 
+            <div class="hd-time-box"><strong><span data-cd-seconds>17</span> S</strong></div> 
+        </div> 
+        
+        <a href="#" class="hd-btn-explore">Explore Shop <i class="fa-solid fa-cart-shopping"></i></a> 
+    </div> 
+</div>
+
+
+            <!-- Right Slider Viewport Carousel -->
+            <div class="hd-slider-wrapper">
+                <div class="hd-slider-viewport">
+                    <div class="hd-track">
+                        
+                        <!-- Product Card 1 -->
+                        <div class="hd-product-card">
+                            <button class="hd-add-btn">Add <i class="fa-solid fa-cart-shopping"></i></button>
+                            <div class="hd-image-wrapper">
+                                <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/product-img28.png" alt="Product">
+                            </div>
+                            <div class="hd-card-body">
+                                <div class="hd-pricing-row">
+                                    <span class="hd-current-price">$14.99</span>
+                                    <span class="hd-price-unit">/Qty</span>
+                                    <span class="hd-old-price">$28.99</span>
+                                </div>
+                                <div class="hd-ratings-row">
+                                    <span class="hd-star-icon">★</span>
+                                    <span class="hd-score">4.8</span>
+                                    <span class="hd-count">(17k)</span>
+                                </div>
+                                <h4 class="hd-product-name">Taylor Farms Broccoli Florets Vegetables</h4>
+                                <div class="hd-progress-wrapper">
+                                    <div class="hd-progress-bar"><div class="hd-progress-fill" style="width: 51%;"></div></div>
+                                    <span class="hd-sold-text">Sold: 18/35</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 2 -->
+                        <div class="hd-product-card">
+                            <button class="hd-add-btn">Add<i class="fa-solid fa-cart-shopping"></i></button>
+                            <div class="hd-image-wrapper">
+                                <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/product-img29.png" alt="Product">
+                            </div>
+                            <div class="hd-card-body">
+                                <div class="hd-pricing-row">
+                                    <span class="hd-current-price">$14.99</span>
+                                    <span class="hd-price-unit">/Qty</span>
+                                    <span class="hd-old-price">$28.99</span>
+                                </div>
+                                <div class="hd-ratings-row">
+                                    <span class="hd-star-icon">★</span>
+                                    <span class="hd-score">4.8</span>
+                                    <span class="hd-count">(17k)</span>
+                                </div>
+                                <h4 class="hd-product-name">Taylor Farms Broccoli Florets Vegetables</h4>
+                                <div class="hd-progress-wrapper">
+                                    <div class="hd-progress-bar"><div class="hd-progress-fill" style="width: 51%;"></div></div>
+                                    <span class="hd-sold-text">Sold: 18/35</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 3 -->
+                        <div class="hd-product-card">
+                            <button class="hd-add-btn">Add <i class="fa-solid fa-cart-shopping"></i></button>
+                            <div class="hd-image-wrapper">
+                                <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/product-img30.png" alt="Product">
+                            </div>
+                            <div class="hd-card-body">
+                                <div class="hd-pricing-row">
+                                    <span class="hd-current-price">$14.99</span>
+                                    <span class="hd-price-unit">/Qty</span>
+                                    <span class="hd-old-price">$28.99</span>
+                                </div>
+                                <div class="hd-ratings-row">
+                                    <span class="hd-star-icon">★</span>
+                                    <span class="hd-score">4.8</span>
+                                    <span class="hd-count">(17k)</span>
+                                </div>
+                                <h4 class="hd-product-name">Taylor Farms Broccoli Florets Vegetables</h4>
+                                <div class="hd-progress-wrapper">
+                                    <div class="hd-progress-bar"><div class="hd-progress-fill" style="width: 51%;"></div></div>
+                                    <span class="hd-sold-text">Sold: 18/35</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Product Card 4 -->
+                        <div class="hd-product-card">
+                            <button class="hd-add-btn">Add <i class="fa-solid fa-cart-shopping"></i></button>
+                            <div class="hd-image-wrapper">
+                                <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/product-img31.png" alt="Product">
+                            </div>
+                            <div class="hd-card-body">
+                                <div class="hd-pricing-row">
+                                    <span class="hd-current-price">$14.99</span>
+                                    <span class="hd-price-unit">/Qty</span>
+                                    <span class="hd-old-price">$28.99</span>
+                                </div>
+                                <div class="hd-ratings-row">
+                                    <span class="hd-star-icon">★</span>
+                                    <span class="hd-score">4.8</span>
+                                    <span class="hd-count">(17k)</span>
+                                </div>
+                                <h4 class="hd-product-name">Taylor Farms Broccoli Florets Vegetables</h4>
+                                <div class="hd-progress-wrapper">
+                                    <div class="hd-progress-bar"><div class="hd-progress-fill" style="width: 51%;"></div></div>
+                                    <span class="hd-sold-text">Sold: 18/35</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 5 -->
+                        <div class="hd-product-card">
+                            <button class="hd-add-btn">Add <i class="fa-solid fa-cart-shopping"></i></button>
+                            <div class="hd-image-wrapper">
+                                <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/product-img32.png" alt="Product">
+                            </div>
+                            <div class="hd-card-body">
+                                <div class="hd-pricing-row">
+                                    <span class="hd-current-price">$14.99</span>
+                                    <span class="hd-price-unit">/Qty</span>
+                                    <span class="hd-old-price">$28.99</span>
+                                </div>
+                                <div class="hd-ratings-row">
+                                    <span class="hd-star-icon">★</span>
+                                    <span class="hd-score">4.8</span>
+                                    <span class="hd-count">(17k)</span>
+                                </div>
+                                <h4 class="hd-product-name">Taylor Farms Broccoli Florets Vegetables</h4>
+                                <div class="hd-progress-wrapper">
+                                    <div class="hd-progress-bar"><div class="hd-progress-fill" style="width: 51%;"></div></div>
+                                    <span class="hd-sold-text">Sold: 18/35</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 6-->
+                        <div class="hd-product-card">
+                            <button class="hd-add-btn">Add <i class="fa-solid fa-cart-shopping"></i></button>
+                            <div class="hd-image-wrapper">
+                                <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/product-img7.png" alt="Product">
+                            </div>
+                            <div class="hd-card-body">
+                                <div class="hd-pricing-row">
+                                    <span class="hd-current-price">$14.99</span>
+                                    <span class="hd-price-unit">/Qty</span>
+                                    <span class="hd-old-price">$28.99</span>
+                                </div>
+                                <div class="hd-ratings-row">
+                                    <span class="hd-star-icon">★</span>
+                                    <span class="hd-score">4.8</span>
+                                    <span class="hd-count">(17k)</span>
+                                </div>
+                                <h4 class="hd-product-name">Taylor Farms Broccoli Florets Vegetables</h4>
+                                <div class="hd-progress-wrapper">
+                                    <div class="hd-progress-bar"><div class="hd-progress-fill" style="width: 51%;"></div></div>
+                                    <span class="hd-sold-text">Sold: 18/35</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Product Card 7 -->
+                        <div class="hd-product-card">
+                            <button class="hd-add-btn">Add <i class="fa-solid fa-cart-shopping"></i></button>
+                            <div class="hd-image-wrapper">
+                                <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/product-img8.png" alt="Product">
+                            </div>
+                            <div class="hd-card-body">
+                                <div class="hd-pricing-row">
+                                    <span class="hd-current-price">$14.99</span>
+                                    <span class="hd-price-unit">/Qty</span>
+                                    <span class="hd-old-price">$28.99</span>
+                                </div>
+                                <div class="hd-ratings-row">
+                                    <span class="hd-star-icon">★</span>
+                                    <span class="hd-score">4.8</span>
+                                    <span class="hd-count">(17k)</span>
+                                </div>
+                                <h4 class="hd-product-name">Taylor Farms Broccoli Florets Vegetables</h4>
+                                <div class="hd-progress-wrapper">
+                                    <div class="hd-progress-bar"><div class="hd-progress-fill" style="width: 51%;"></div></div>
+                                    <span class="hd-sold-text">Sold: 18/35</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 9 -->
+                        <div class="hd-product-card">
+                            <button class="hd-add-btn">Add <i class="fa-solid fa-cart-shopping"></i></button>
+                            <div class="hd-image-wrapper">
+                                <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/product-img9.png" alt="Product">
+                            </div>
+                            <div class="hd-card-body">
+                                <div class="hd-pricing-row">
+                                    <span class="hd-current-price">$14.99</span>
+                                    <span class="hd-price-unit">/Qty</span>
+                                    <span class="hd-old-price">$28.99</span>
+                                </div>
+                                <div class="hd-ratings-row">
+                                    <span class="hd-star-icon">★</span>
+                                    <span class="hd-score">4.8</span>
+                                    <span class="hd-count">(17k)</span>
+                                </div>
+                                <h4 class="hd-product-name">Taylor Farms Broccoli Florets Vegetables</h4>
+                                <div class="hd-progress-wrapper">
+                                    <div class="hd-progress-bar"><div class="hd-progress-fill" style="width: 51%;"></div></div>
+                                    <span class="hd-sold-text">Sold: 18/35</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 10 -->
+                        <div class="hd-product-card">
+                            <button class="hd-add-btn">Add <i class="fa-solid fa-cart-shopping"></i></button>
+                            <div class="hd-image-wrapper">
+                                <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/product-img10.png" alt="Product">
+                            </div>
+                            <div class="hd-card-body">
+                                <div class="hd-pricing-row">
+                                    <span class="hd-current-price">$14.99</span>
+                                    <span class="hd-price-unit">/Qty</span>
+                                    <span class="hd-old-price">$28.99</span>
+                                </div>
+                                <div class="hd-ratings-row">
+                                    <span class="hd-star-icon">★</span>
+                                    <span class="hd-score">4.8</span>
+                                    <span class="hd-count">(17k)</span>
+                                </div>
+                                <h4 class="hd-product-name">Taylor Farms Broccoli Florets Vegetables</h4>
+                                <div class="hd-progress-wrapper">
+                                    <div class="hd-progress-bar"><div class="hd-progress-fill" style="width: 51%;"></div></div>
+                                    <span class="hd-sold-text">Sold: 18/35</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- TOP DISCOUNT BANNER SECTION -->
+<section class="promo-coupon-section">
+    <div class="promo-coupon-container">
+        
+        <!-- Left Side Text Highlight -->
+        <p class="promo-text-lead">
+            Super discount for your <a href="#" class="promo-underline-link">first purchase</a>
+        </p>
+
+        <!-- Center Interactive Code Pill -->
+        <div class="promo-code-pill">
+            <span class="promo-code-text">FREE25BAC</span>
+            <i class="fa-regular fa-copy promo-copy-icon" aria-hidden="true"></i>
+        </div>
+
+        <!-- Right Side Condition Info Details -->
+        <p class="promo-text-sub">
+            Use discount code to get <strong>20%</strong> discount for any item
+        </p>
+
+    </div>
+</section>
+
+<section class="dashboard-products-section">
+    <div class="dp-container">
+        <div class="dp-grid-layout">
+
+            <!-- Column 1: Featured Products -->
+            <div class="dp-list-column">
+                <div class="dp-column-header">
+                    <h3 class="dp-column-title">Featured Products</h3>
+                </div>
+                <div class="dp-list-items">
+                    <!-- Item 1 -->
+                    <div class="dp-mini-card">
+                        <div class="dp-mini-img-box">
+                            <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/short-product-img1.png" alt="Product">
+                        </div>
+                        <div class="dp-mini-info">
+                            <div class="dp-mini-rating"><span class="dp-star">★</span> 4.8 <span class="dp-count">(17k)</span></div>
+                            <h4 class="dp-mini-name">Taylor Farms Broccoli Floret...</h4>
+                            <div class="dp-mini-price"><span class="dp-current">$1500.00</span> <span class="dp-old">$1500.00</span></div>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="dp-mini-card">
+                        <div class="dp-mini-img-box">
+                            <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/short-product-img2.png" alt="Product">
+                        </div>
+                        <div class="dp-mini-info">
+                            <div class="dp-mini-rating"><span class="dp-star">★</span> 4.8 <span class="dp-count">(17k)</span></div>
+                            <h4 class="dp-mini-name">Taylor Farms Broccoli Floret...</h4>
+                            <div class="dp-mini-price"><span class="dp-current">$1500.00</span> <span class="dp-old">$1500.00</span></div>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="dp-mini-card">
+                        <div class="dp-mini-img-box">
+                            <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/short-product-img3.png" alt="Product">
+                        </div>
+                        <div class="dp-mini-info">
+                            <div class="dp-mini-rating"><span class="dp-star">★</span> 4.8 <span class="dp-count">(17k)</span></div>
+                            <h4 class="dp-mini-name">Taylor Farms Broccoli Floret...</h4>
+                            <div class="dp-mini-price"><span class="dp-current">$1500.00</span> <span class="dp-old">$1500.00</span></div>
+                        </div>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="dp-mini-card">
+                        <div class="dp-mini-img-box">
+                            <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/short-product-img4.png" alt="Product">
+                        </div>
+                        <div class="dp-mini-info">
+                            <div class="dp-mini-rating"><span class="dp-star">★</span> 4.8 <span class="dp-count">(17k)</span></div>
+                            <h4 class="dp-mini-name">Taylor Farms Broccoli Floret...</h4>
+                            <div class="dp-mini-price"><span class="dp-current">$1500.00</span> <span class="dp-old">$1500.00</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column 2: Top Selling Products -->
+            <div class="dp-list-column">
+                <div class="dp-column-header">
+                    <h3 class="dp-column-title">Top Selling Products</h3>
+                </div>
+                <div class="dp-list-items">
+                    <!-- Item 1 -->
+                    <div class="dp-mini-card">
+                        <div class="dp-mini-img-box">
+                            <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/short-product-img5.png" alt="Product">
+                        </div>
+                        <div class="dp-mini-info">
+                            <div class="dp-mini-rating"><span class="dp-star">★</span> 4.8 <span class="dp-count">(17k)</span></div>
+                            <h4 class="dp-mini-name">Taylor Farms Broccoli Floret...</h4>
+                            <div class="dp-mini-price"><span class="dp-current">$1500.00</span> <span class="dp-old">$1500.00</span></div>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="dp-mini-card">
+                        <div class="dp-mini-img-box">
+                            <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/short-product-img6.png" alt="Product">
+                        </div>
+                        <div class="dp-mini-info">
+                            <div class="dp-mini-rating"><span class="dp-star">★</span> 4.8 <span class="dp-count">(17k)</span></div>
+                            <h4 class="dp-mini-name">Taylor Farms Broccoli Floret...</h4>
+                            <div class="dp-mini-price"><span class="dp-current">$1500.00</span> <span class="dp-old">$1500.00</span></div>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="dp-mini-card">
+                        <div class="dp-mini-img-box">
+                            <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/short-product-img7.png" alt="Product">
+                        </div>
+                        <div class="dp-mini-info">
+                            <div class="dp-mini-rating"><span class="dp-star">★</span> 4.8 <span class="dp-count">(17k)</span></div>
+                            <h4 class="dp-mini-name">Taylor Farms Broccoli Floret...</h4>
+                            <div class="dp-mini-price"><span class="dp-current">$1500.00</span> <span class="dp-old">$1500.00</span></div>
+                        </div>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="dp-mini-card">
+                        <div class="dp-mini-img-box">
+                            <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/short-product-img8.png" alt="Product">
+                        </div>
+                        <div class="dp-mini-info">
+                            <div class="dp-mini-rating"><span class="dp-star">★</span> 4.8 <span class="dp-count">(17k)</span></div>
+                            <h4 class="dp-mini-name">Taylor Farms Broccoli Floret...</h4>
+                            <div class="dp-mini-price"><span class="dp-current">$1500.00</span> <span class="dp-old">$1500.00</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column 3: On-sale Products -->
+            <div class="dp-list-column">
+                <div class="dp-column-header">
+                    <h3 class="dp-column-title">On-sale Products</h3>
+                </div>
+                <div class="dp-list-items">
+                    <!-- Item 1 -->
+                    <div class="dp-mini-card">
+                        <div class="dp-mini-img-box">
+                            <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/short-product-img4.png" alt="Product">
+                        </div>
+                        <div class="dp-mini-info">
+                            <div class="dp-mini-rating"><span class="dp-star">★</span> 4.8 <span class="dp-count">(17k)</span></div>
+                            <h4 class="dp-mini-name">Taylor Farms Broccoli Floret...</h4>
+                            <div class="dp-mini-price"><span class="dp-current">$1500.00</span> <span class="dp-old">$1500.00</span></div>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="dp-mini-card">
+                        <div class="dp-mini-img-box">
+                            <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/short-product-img9.png" alt="Product">
+                        </div>
+                        <div class="dp-mini-info">
+                            <div class="dp-mini-rating"><span class="dp-star">★</span> 4.8 <span class="dp-count">(17k)</span></div>
+                            <h4 class="dp-mini-name">Taylor Farms Broccoli Floret...</h4>
+                            <div class="dp-mini-price"><span class="dp-current">$1500.00</span> <span class="dp-old">$1500.00</span></div>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="dp-mini-card">
+                        <div class="dp-mini-img-box">
+                            <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/feature-img7.png" alt="Product">
+                        </div>
+                        <div class="dp-mini-info">
+                            <div class="dp-mini-rating"><span class="dp-star">★</span> 4.8 <span class="dp-count">(17k)</span></div>
+                            <h4 class="dp-mini-name">Taylor Farms Broccoli Floret...</h4>
+                            <div class="dp-mini-price"><span class="dp-current">$1500.00</span> <span class="dp-old">$1500.00</span></div>
+                        </div>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="dp-mini-card">
+                        <div class="dp-mini-img-box">
+                            <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/product-img7.png" alt="Product">
+                        </div>
+                        <div class="dp-mini-info">
+                            <div class="dp-mini-rating"><span class="dp-star">★</span> 4.8 <span class="dp-count">(17k)</span></div>
+                            <h4 class="dp-mini-name">Taylor Farms Broccoli Floret...</h4>
+                            <div class="dp-mini-price"><span class="dp-current">$1500.00</span> <span class="dp-old">$1500.00</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column 4: Deals of the Week Big Card -->
+            <div class="dp-deals-column">
+                <div class="dp-deal-card">
+                    <h3 class="dp-deal-main-title">Deals of the week</h3>
+                    
+                    <!-- Countdown Strip -->
+                <div class="dp-deal-countdown" data-countdown-target="November 15, 2027 23:59:59"> 
+    <div class="dp-countdown-box"><strong><span data-cd-days>546</span> D</strong></div> 
+    <div class="dp-sep">:</div> 
+    <div class="dp-countdown-box"><strong><span data-cd-hours>15</span> H</strong></div> 
+    <div class="dp-sep">:</div> 
+    <div class="dp-countdown-box"><strong><span data-cd-minutes>54</span> M</strong></div> 
+    <div class="dp-sep">:</div> 
+    <div class="dp-countdown-box"><strong><span data-cd-seconds>38</span> S</strong></div> 
+</div>
+
+                    
+                    <p class="dp-deal-promo-text">Don't miss this opportunity at a special</p>
+                    
+                    <!-- Featured Product Image Box -->
+                    <div class="dp-deal-img-wrapper">
+                        <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/product-img32.png" alt="Crispy Wings">
+                    </div>
+                    
+                    <!-- Rating and Pricing Row -->
+                    <div class="dp-deal-meta-row">
+                        <div class="dp-deal-stars">★★★★★ <span class="dp-deal-review-count">(3)</span></div>
+                        <div class="dp-deal-pricing">
+                            <span class="dp-deal-current">$60.99</span>
+                            <span class="dp-deal-old">$79.99</span>
+                        </div>
+                    </div>
+
+                    <h4 class="dp-deal-product-name">Perfectly Packed Meat Combos for Delicious and Flavorful Meals Every Day</h4>
+                    <p class="dp-deal-stock-status">This product is about to run out</p>
+                    
+                    <!-- Progress Bar Component -->
+                    <div class="dp-deal-progress-wrapper">
+                        <div class="dp-deal-progress-bar">
+                            <div class="dp-deal-progress-fill" style="width: 75%;"></div>
+                        </div>
+                        <div class="dp-deal-available-text">available only: <strong>$60.99</strong></div>
+                    </div>
+
+                    <!-- Add to Cart Action -->
+                    <button class="dp-deal-add-btn">Add To Cart <i class="fa-solid fa-cart-shopping"></i></button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- SHOP BY BRANDS CAROUSEL SECTION -->
+<section class="brands-carousel-section">
+    <div class="bc-container">
+        
+        <!-- Section Header Area -->
+        <header class="bc-header">
+            <h2 class="bc-section-title">Shop by Brands</h2>
+            <div class="bc-header-actions">
+                <a href="#" class="bc-view-all">View All Deals</a>
+                <div class="bc-slider-arrows">
+                    <button class="bc-arrow-btn bc-prev" aria-label="Previous slide">&#10094;</button>
+                    <button class="bc-arrow-btn bc-next" aria-label="Next slide">&#10095;</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dynamic Carousel Viewport -->
+        <div class="bc-slider-viewport">
+            <div class="bc-track">
+                
+                <!-- Brand Item 1 -->
+                <div class="bc-brand-card">
+                    <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/brand-img1.png" alt="Organic Brand 1">
+                </div>
+                
+                <!-- Brand Item 2 -->
+                <div class="bc-brand-card">
+                    <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/brand-img2.png" alt="Organic Brand 2">
+                </div>
+                
+                <!-- Brand Item 3 -->
+                <div class="bc-brand-card">
+                    <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/brand-img3.png" alt="Organic Brand 3">
+                </div>
+                
+                <!-- Brand Item 4 -->
+                <div class="bc-brand-card">
+                    <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/brand-img4.png" alt="Organic Brand 4">
+                </div>
+                
+                <!-- Brand Item 5 -->
+                <div class="bc-brand-card">
+                    <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/brand-img5.png" alt="Organic Brand 5">
+                </div>
+                
+                <!-- Brand Item 6 -->
+                <div class="bc-brand-card">
+                    <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/brand-img6.png" alt="Organic Brand 6">
+                </div>
+                
+                <!-- Brand Item 7 -->
+                <div class="bc-brand-card">
+                    <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/brand-img7.png" alt="Organic Brand 7">
+                </div>
+                
+                <!-- Brand Item 8 -->
+                <div class="bc-brand-card">
+                    <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/brand-img1.png" alt="Organic Brand 8">
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<section class="daily-best-sells">
+    <div class="container">
+        <!-- Section Title -->
+        <div class="section-header">
+            <h2 class="section-title">Daily Best Sells</h2>
+        </div>
+
+        <div class="sells-layout-wrapper">
+            
+            <!-- LEFT SIDE: 2x2 Product Grid -->
+            <div class="sells-products-grid">
+                
+                <!-- Product Card 1 -->
+                <div class="horizontal-product-card">
+                    <div class="hp-img-box">
+                        <span class="badge-sale">Sale 50%</span>
+                        <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/best-sell1.png" alt="Basket">
+                        <div class="hp-countdown" data-countdown-target="November 07, 2027 23:59:59"> 
+    <span data-cd-days>538</span> Days : 
+    <span data-cd-hours>14</span> Hours : 
+    <span data-cd-minutes>29</span> Min : 
+    <span data-cd-seconds>42</span> Sec 
+</div>
+
+                    </div>
+                    <div class="hp-content-box">
+                        <div class="hp-price-row">
+                            <span class="old-price">$28.99</span>
+                            <span class="new-price">$14.99</span><span class="qty">/Qty</span>
+                        </div>
+                        <div class="hp-rating">
+                            <span class="score">4.8</span> 
+                            <i class="fa-solid fa-star"></i> 
+                            <span class="count">(17k)</span>
+                        </div>
+                        <h3 class="hp-title">Taylor Farms Broccoli Florets Vegetables</h3>
+                        <div class="hp-vendor">
+                            By <span class="vendor-name">Lucky Supermarket</span>
+                        </div>
+                        <div class="hp-sold">
+                            Sold: 18/35
+                        </div>
+                        <button class="btn-hp-add">
+                            Add To Cart <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="horizontal-product-card">
+                    <div class="hp-img-box">
+                        <span class="badge-sale">Sale 50%</span>
+                        <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/best-sell2.png" alt="Basket">
+                       <div class="hp-countdown" data-countdown-target="November 07, 2027 23:59:59"> 
+    <span data-cd-days>538</span> Days : 
+    <span data-cd-hours>14</span> Hours : 
+    <span data-cd-minutes>29</span> Min : 
+    <span data-cd-seconds>42</span> Sec 
+</div>
+
+                    </div>
+                    <div class="hp-content-box">
+                        <div class="hp-price-row">
+                            <span class="old-price">$28.99</span>
+                            <span class="new-price">$14.99</span><span class="qty">/Qty</span>
+                        </div>
+                        <div class="hp-rating">
+                            <span class="score">4.8</span> <i class="fa-solid fa-star"></i> <span class="count">(17k)</span>
+                        </div>
+                        <h3 class="hp-title">Taylor Farms Broccoli Florets Vegetables</h3>
+                        <div class="hp-vendor">
+                            By <span class="vendor-name">Lucky Supermarket</span>
+                        </div>
+                        <div class="hp-sold">
+                            Sold: 18/35
+                        </div>
+                        <button class="btn-hp-add">
+                            Add To Cart <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="horizontal-product-card">
+                    <div class="hp-img-box">
+                        <span class="badge-sale">Sale 50%</span>
+                        <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/best-sell3.png" alt="Crate">
+                       <div class="hp-countdown" data-countdown-target="November 07, 2027 23:59:59"> 
+    <span data-cd-days>538</span> Days : 
+    <span data-cd-hours>14</span> Hours : 
+    <span data-cd-minutes>29</span> Min : 
+    <span data-cd-seconds>42</span> Sec 
+</div>
+
+                    </div>
+                    <div class="hp-content-box">
+                        <div class="hp-price-row">
+                            <span class="old-price">$28.99</span>
+                            <span class="new-price">$14.99</span><span class="qty">/Qty</span>
+                        </div>
+                        <div class="hp-rating">
+                            <span class="score">4.8</span> <i class="fa-solid fa-star"></i> <span class="count">(17k)</span>
+                        </div>
+                        <h3 class="hp-title">Taylor Farms Broccoli Florets Vegetables</h3>
+                        <div class="hp-vendor">
+                            By <span class="vendor-name">Lucky Supermarket</span>
+                        </div>
+                        <div class="hp-sold">
+                            Sold: 18/35
+                        </div>
+                        <button class="btn-hp-add">
+                            Add To Cart <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div class="horizontal-product-card">
+                    <div class="hp-img-box">
+                        <span class="badge-sale">Sale 50%</span>
+                        <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/best-sell4.png" alt="Fruits">
+                       <div class="hp-countdown" data-countdown-target="November 07, 2027 23:59:59"> 
+    <span data-cd-days>538</span> Days : 
+    <span data-cd-hours>14</span> Hours : 
+    <span data-cd-minutes>29</span> Min : 
+    <span data-cd-seconds>42</span> Sec 
+</div>
+ 
+                    </div>
+                    <div class="hp-content-box">
+                        <div class="hp-price-row">
+                            <span class="old-price">$28.99</span>
+                            <span class="new-price">$14.99</span><span class="qty">/Qty</span>
+                        </div>
+                        <div class="hp-rating">
+                            <span class="score">4.8</span> <i class="fa-solid fa-star"></i> <span class="count">(17k)</span>
+                        </div>
+                        <h3 class="hp-title">Taylor Farms Broccoli Florets Vegetables</h3>
+                        <div class="hp-vendor">
+                            By <span class="vendor-name">Lucky Supermarket</span>
+                        </div>
+                        <div class="hp-sold">
+                            Sold: 18/35
+                        </div>
+                        <button class="btn-hp-add">
+                            Add To Cart <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT SIDE: Special Offer Banner (Cleaned Structure) -->
+<div class="best-sells-banner">
+    <div class="bs-banner-content">
+        <div class="bs-logo">
+            <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/offer-logo.png" alt="Logo">
+        </div>
+        <h3 class="bs-title">$5 off your first order</h3>
+        <p class="bs-subtitle">Delivery by 6:15am <span class="expiry">Expire Aug 5</span></p>
+        <a href="#" class="btn-bs-shop">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    <!-- Div 2 Container remains empty to act as the full background sheet -->
+</div>
+
+        </div>
+    </div>
+</section>
+
+<section class="newsletter-section">
+    <div class="container">
+        <div class="newsletter-wrapper">
+            
+            <!-- Div 1: Left Form Content -->
+            <div class="newsletter-content-box">
+                <h2 class="newsletter-title">Stay home & get your daily needs from our shop</h2>
+                
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Enter your mail" required>
+                    <button type="submit" class="btn-newsletter-subscribe">Subscribe now</button>
+                </form>
+                
+                <p class="newsletter-agreement">I agree that my submitted data is being collected and stored.</p>
+            </div>
+
+            <!-- Div 2: Right Image Asset Container -->
+            <div class="newsletter-image-box">
+                <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/newsletter-img.png" alt="Fresh Groceries Basket and Juice">
+            </div>
+
+        </div>
+    </div>
+</section>
+     </main>
+
+     <footer class="main-footer">
+    <div class="container">
+        <!-- Top Footer Grid (6 Columns) -->
+        <div class="footer-top-grid">
+            
+            <!-- Column 1: Company Info -->
+            <div class="footer-column company-info-col">
+                <div class="footer-logo">
+                    <img src="https://marketpro.template.wowtheme7.com/assets/images/logo/logo.png" alt="Marketpro Logo">
+                </div>
+                <p class="footer-desc">We're Grocery Shop, an innovative team of food suppliers.</p>
+                <div class="footer-contact-details">
+                    <p>2972 Westheimer Rd. Santa Ana, Illinois 85486</p>
+                    <p><a href="mailto:m.asadrazzaqweb@gmail.com">m.asadrazzaqweb@gmail.com</a></p>
+                    <p><a href="tel:+923146021391">+ (406) 555-0120</a></p>
+                </div>
+            </div>
+
+            <!-- Column 2: Information Links -->
+            <div class="footer-column">
+                <h4 class="footer-heading">Information</h4>
+                <ul class="footer-links-list">
+                    <li><a href="#">Become a Vendor</a></li>
+                    <li><a href="#">Affiliate Program</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Our Suppliers</a></li>
+                    <li><a href="#">Extended Plan</a></li>
+                    <li><a href="#">Community</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Customer Support -->
+            <div class="footer-column">
+                <h4 class="footer-heading">Customer Support</h4>
+                <ul class="footer-links-list">
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Report Abuse</a></li>
+                    <li><a href="#">Submit and Dispute</a></li>
+                    <li><a href="#">Policies & Rules</a></li>
+                    <li><a href="#">Online Shopping</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: My Account -->
+            <div class="footer-column">
+                <h4 class="footer-heading">My Account</h4>
+                <ul class="footer-links-list">
+                    <li><a href="#">My Account</a></li>
+                    <li><a href="#">Order History</a></li>
+                    <li><a href="#">Shoping Cart</a></li>
+                    <li><a href="#">Compare</a></li>
+                    <li><a href="#">Help Ticket</a></li>
+                    <li><a href="#">Wishlist</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 5: Daily Groceries -->
+            <div class="footer-column">
+                <h4 class="footer-heading">Daily Groceries</h4>
+                <ul class="footer-links-list">
+                    <li><a href="#">Dairy & Eggs</a></li>
+                    <li><a href="#">Meat & Seafood</a></li>
+                    <li><a href="#">Breakfast Food</a></li>
+                    <li><a href="#">Household Supplies</a></li>
+                    <li><a href="#">Bread & Bakery</a></li>
+                    <li><a href="#">Pantry Staples</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 6: Shop on The Go -->
+            <div class="footer-column app-download-col">
+                <h4 class="footer-heading">Shop on The Go</h4>
+                <p class="app-text">MarketPro App is available. Get it now</p>
+                
+                <!-- QR Code and Store Buttons Flex Wrapper -->
+                <div class="app-download-wrapper">
+                    <div class="qr-code-box">
+                        <!-- Placeholder link matching standard template assets -->
+                        <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/qr-code.png" alt="QR Code">
+                    </div>
+                    <div class="store-buttons-box">
+                        <a href="#" class="btn-store-download">
+                            <i class="fa-brands fa-apple"></i>
+                            <div class="btn-store-text"><span>Download on the</span><strong>App Store</strong></div>
+                        </a>
+                        <a href="#" class="btn-store-download">
+                            <i class="fa-brands fa-google-play"></i>
+                            <div class="btn-store-text"><span>Get it on</span><strong>Google play</strong></div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Payment Gateways Row -->
+                <div class="payment-gateways">
+                    <img src="https://marketpro.template.wowtheme7.com/assets/images/thumbs/method.png" alt="Accepted Payments Gateways Grid">
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bottom Copyright Footer Bar -->
+        <div class="footer-bottom-bar">
+            <p class="copyright-text">Copyright © <a href="#" class="author-link">2026</a> Ui-drops All Rights Reserved</p>
+            <div class="footer-social-links">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script src="javascript/script.js"></script>
+<script src="javascript/countdown.js"></script>
+</body>
+</html>

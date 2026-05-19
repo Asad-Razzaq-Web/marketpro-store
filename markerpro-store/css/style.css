@@ -1,0 +1,4043 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://googleapis.com');
+
+:root {
+  --primary-blue: #0b7ea3;
+  --primary-green: #2b8b2f;
+  --accent-yellow: #ffc233;
+  --text-dark: #222222;
+  --text-light: #ffffff;
+  --border-color: #e5e5e5;
+  --transition: all 0.3s ease;
+}
+
+/* =========================
+   1. RESET & BASE
+========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+   font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: clip; /* Clean overflow management that preserves sticky */
+}
+
+body {
+  background-color: #f9f9f9;
+  color: var(--text-dark);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+button, input {
+  border: none;
+  outline: none;
+  background: none;
+}
+
+/* =========================
+   8. IMAGE-BASED PRELOADER
+========================== */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #ffffff; /* Clean white backdrop */
+    z-index: 999999; /* Forces layer above absolute elements, navs, and overlays */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Hardware accelerated smooth exit transform */
+    transition: transform 0.8s cubic-bezier(0.85, 0, 0.15, 1);
+    will-change: transform;
+}
+
+/* Slide up state triggered via JavaScript hook */
+#preloader.slide-up-exit {
+    transform: translate3d(0, -100vh, 0);
+}
+
+/* Image Dimensions Calibration */
+.loader-image {
+    width: 120px;       /* Adjust this value to make your loader graphic larger or smaller */
+    height: auto;      /* Protects aspect ratio from stretching */
+    display: block;
+    margin: 0 auto;
+}
+
+/* Freeze document scrollbars entirely while overlay layer is active */
+body.preloader-lock {
+    overflow: hidden !important;
+    height: 100vh !important;
+}
+
+
+/* TOP NAVBAR */
+.top-navbar {
+  background: var(--primary-blue);
+  color: var(--text-light);
+  font-size: 13px;
+  padding: 8px 0;
+}
+
+.top-navbar-container {
+  max-width: 1400px;
+  margin: auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.sale-timer strong {
+  margin-left: 5px;
+  font-weight: 700;
+}
+
+.offer-box {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-weight: 500;
+}
+
+.offer-box .highlight {
+  color: var(--accent-yellow);
+  font-weight: 700;
+}
+
+.divider {
+  width: 1px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.dropdown {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+@media (max-width: 1165px) {
+    .top-navbar {
+        overflow: hidden; /* Prevents mobile horizontal layout breakage */
+    }
+
+    .top-navbar-container {
+        flex-wrap: nowrap !important; /* Prevents vertical stacking on small screens */
+        justify-content: flex-start;
+        width: max-content; 
+        gap: 60px; /* Air gap between sections inside marquee loop */
+        
+        /* Smooth left-to-right scroll translation path */
+        animation: mobileScrollLeftToRight 16s linear infinite; 
+    }
+
+    /* Prevents the link texts from compressing or breaking lines */
+    .sale-timer, 
+    .offer-box, 
+    .nav-links {
+        flex-shrink: 0;
+        white-space: nowrap;
+    }
+
+    /* Pauses the linear scroll ticker instantly on user screen touch gesture */
+    .top-navbar-container:hover,
+    .top-navbar-container:active {
+        animation-play-state: paused;
+    }
+}
+
+/* Precise continuous linear transition path tracking matrix */
+@keyframes mobileScrollLeftToRight {
+    0% {
+        transform: translateX(-50%); /* Enters seamlessly from the left field margin */
+    }
+    100% {
+        transform: translateX(0%); /* Moves over cleanly to the right side baseline */
+    }
+}
+
+/* MAIN NAVBAR */
+.navbar {
+  background: #fff;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.container {
+  max-width: 1400px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.navbar-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.logo img {
+  max-width: 170px;
+  display: block;
+}
+
+.search-area {
+  flex: 1;
+  max-width: 700px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  height: 50px;
+  overflow: hidden;
+}
+
+.category {
+  padding: 0 15px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-right: 1px solid var(--border-color);
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.search-input {
+  flex: 1;
+  padding: 0 15px;
+  font-size: 14px;
+}
+
+.search-btn {
+  width: 55px;
+  height: 100%;
+  background: var(--primary-blue);
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.icon-badge {
+  position: relative;
+  font-size: 22px;
+  display: flex;
+}
+
+.badge {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background: var(--primary-blue);
+  color: #fff;
+  font-size: 10px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #fff;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+  .navbar-wrapper { flex-wrap: wrap; }
+  .search-area { order: 3; max-width: 100%; width: 100%; }
+}
+
+@media (max-width: 768px) {
+  .nav-item span { display: none; }
+  .category { display: none; }
+}
+/* Ensure the desktop logo baseline has an explicit matching selector hook */
+.navbar-logo {
+    max-width: 170px;
+    display: block;
+}
+
+/* ==========================================================================
+   MOBILE SEARCH ALIGNMENT & COMPACT SIZING OVERRIDES
+   ========================================================================== */
+.mobile-search-toggle {
+    display: none; /* Hidden on desktop/tablets */
+    background: none;
+    border: none;
+    font-size: 22px; 
+    color: #222;
+    cursor: pointer;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-search-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    display: flex;
+    align-items: flex-start;
+}
+
+.mobile-search-popup.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.mobile-search-popup-content {
+    background: #ffffff;
+    width: 100%;
+    padding: 40px 20px 24px 20px; 
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    position: relative;
+    transform: translateY(-20px);
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.mobile-search-popup.active .mobile-search-popup-content {
+    transform: translateY(0);
+}
+
+.mobile-search-close {
+    position: absolute;
+    top: 2px;
+    right: 16px;
+    background: transparent;
+    border: none;
+    font-size: 28px;
+    color: #999;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   STRICT MOBILE SCREEN BREAKPOINTS (MAX-WIDTH: 576px)
+   ========================================================================== */
+@media (max-width: 576px) {
+    /* 1. Reset wrapping layout behavior for the navbar container */
+    .navbar-wrapper {
+        display: flex !important;
+        flex-wrap: nowrap !important; /* Forces elements onto a single row */
+        justify-content: space-between !important; /* Pushes logo left, icons right */
+        align-items: center !important;
+        gap: 15px !important;
+    }
+
+    /* 2. FIXED: Shrinks the logo image so it fits beautifully on small screens */
+    .navbar-logo {
+        max-width: 120px !important; /* Scaled down from 170px */
+        flex-shrink: 0;
+    }
+
+    /* 3. Hide the main desktop search container */
+    .search-area {
+        display: none !important;
+    }
+
+    /* 4. Display the mobile magnifying toggle glass icon */
+    .mobile-search-toggle {
+        display: inline-flex;
+    }
+
+    /* 5. Keep all action icons tightly packed together on the right edge */
+    .nav-actions {
+        display: flex !important;
+        gap: 16px !important; /* Tight, crisp spacing for small mobile screens */
+        margin-left: auto; /* Solid alignment push to the far right */
+        flex-shrink: 0;
+    }
+
+    /* Hide text labels inside the nav items on mobile */
+    .nav-item span {
+        display: none !important;
+    }
+
+    /* 6. Compact layout formatting for the search modal input bar */
+    .mobile-search-popup-content .search-box {
+        height: 42px; 
+        border-radius: 6px;
+    }
+
+    .mobile-search-popup-content .search-input {
+        font-size: 13px;
+        padding: 0 12px;
+    }
+
+    .mobile-search-popup-content .search-btn {
+        width: 48px;
+        font-size: 15px;
+    }
+}
+
+
+/* ----------------------------------
+-------bottom nav----------------
+---------------------------------- */
+
+.bottom-navbar {
+    background-color: white;
+    width: 100%;
+    
+    /* Sticky Properties */
+    position: -webkit-sticky; /* Safari support */
+    position: sticky;
+    top: 0; /* Locks the bar at the absolute top boundary of the viewport */
+    z-index: 1000; /* Keeps it layered above layout sliders and products */
+    
+    /* Structural adjustments for top pinning */
+    margin-top: 0; 
+    border-bottom: 1px solid var(--border-color); 
+    
+    /* Adds professional depth when scrolling over body content */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
+}
+
+/* 3. Interior Layout Framework */
+.bottom-nav-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Green Category Button Styling */
+.category-btn {
+    background: #27bc7d; 
+    color: #fff;
+    padding: 14px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin: 10px 0;
+    border: none;
+}
+
+/* Menu Items Alignment */
+.main-menu {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.main-menu li {
+    position: relative; /* Anchor container for the absolute badges */
+}
+
+.main-menu li a {
+    font-size: 15px;
+    font-weight: 500;
+    color: #444;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 25px 0;
+    text-decoration: none;
+}
+
+.main-menu li a.active {
+    color: var(--primary-blue);
+}
+
+/* Badge Layout Restructuring */
+.badge-new {
+    position: absolute;
+    top: -2px; /* Pulls badges cleanly above the link titles */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.badge-new.orange { background: #ffb46e; }
+.badge-new.purple { background: #a5a5f1; }
+
+/* Right Support Side Configuration */
+.nav-support {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-support i {
+    font-size: 20px;
+    color: var(--primary-blue);
+}
+
+.support-text span {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    color: #666;
+}
+
+.support-text a {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--primary-blue);
+    text-decoration: none;
+}
+
+/* Mobile Visibility Toggle */
+@media (max-width: 1024px) {
+    .main-menu, .nav-support { display: none; }
+}
+/* ==========================================================================
+   MOBILE SIDEBAR HAMBURGER MENUS SYSTEM STYLES
+   ========================================================================== */
+
+/* Base Hidden state formatting properties for the mobile burger click handler icon button */
+.mobile-menu-toggle {
+    display: none; /* Hidden on standard desktops/laptops natively */
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #222;
+    cursor: pointer;
+    padding: 0;
+}
+
+/* Master Fixed Cover layer backdrop container frame panel overlay window wrapper system */
+.mobile-sidebar-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10001; /* Layered safely above sticky header blocks bars elements nodes */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Active Class trigger to open/fade-in the sidebar */
+.mobile-sidebar-drawer.drawer-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Blurring dim backdrop tracking layer */
+.sidebar-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 2, 10, 0.4);
+    backdrop-filter: blur(2px);
+}
+
+/* Left sliding menu panel sheet window panel */
+.sidebar-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 290px; /* Exact width layout scale match from reference graphics image */
+    height: 100%;
+    background-color: #ffffff;
+    box-shadow: 5px 0 25px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* Handles vertical scrolling for smaller mobile screens */
+    
+    /* Smooth transform slide-in matrix */
+    transform: translateX(-100%);
+    transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.mobile-sidebar-drawer.drawer-active .sidebar-panel {
+    transform: translateX(0); /* Slides cleanly into viewport */
+}
+
+/* Sidebar Top Brand Header Segment blocks styles */
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 16px;
+    border-bottom: 1px solid var(--border-color, #e5e5e5);
+}
+
+.sidebar-logo {
+    max-width: 135px; /* Scaled cleanly inside mobile slide menus block */
+    object-fit: contain;
+}
+
+.sidebar-close-btn {
+    background: #eef2f5;
+    border: none;
+    font-size: 24px;
+    color: #77838f;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.sidebar-close-btn:hover {
+    background: #e54d4d;
+    color: #fff;
+}
+
+/* Vertical lists link layout menus system */
+.sidebar-menu {
+    list-style: none;
+    margin: 0;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-item {
+    position: relative;
+    width: 100%;
+    border-bottom: 1px solid #f8f9fa; /* Clean horizontal structural separator rows */
+}
+
+.sidebar-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #444444;
+    text-decoration: none;
+    width: 100%;
+    box-sizing: border-box;
+    transition: color 0.2s;
+}
+
+.sidebar-link i {
+    font-size: 12px;
+    color: #999999;
+}
+
+.sidebar-link:hover {
+    color: var(--primary-blue, #0b7ea3);
+    background-color: #fcfdfe;
+}
+
+/* Precise mobile side badges positioning remapping from image */
+.sidebar-badge {
+    position: absolute;
+    left: 20px;
+    top: 32px; /* Places badges precisely below the link text just like the image */
+    font-size: 9px;
+    padding: 1px 6px;
+    border-radius: 3px;
+    color: #fff;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.sidebar-badge.orange { background: #ffb46e; }
+.sidebar-badge.purple { background: #a5a5f1; }
+
+/* Push links slightly lower if they contain a badge asset to prevent collisions */
+.sidebar-item:has(.sidebar-badge) .sidebar-link {
+    padding-bottom: 24px;
+}
+
+/* ==========================================================================
+   STRICT RESPONSIVE MOBILE TARGETS OVERRIDES (MAX-WIDTH: 1024px)
+   ========================================================================== */
+@media (max-width: 1024px) {
+    /* Exposes the hamburger icon handle trigger cleanly inside categories row bar */
+    .mobile-menu-toggle {
+        display: inline-flex;
+        margin-right: 60px; 
+    }
+    
+    /* Slightly shrinks the main button padding metrics on phone viewports */
+    .category-btn {
+        padding: 10px 16px;
+        font-size: 14px;
+        margin: 6px 0;
+    }
+}
+
+
+/* ========================
+Floating Scroll Top 
+======================== */
+
+.scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    background: #fff;
+    border: 1px solid var(--border-color);
+    color: var(--primary-blue);
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    z-index: 100;
+}
+
+
+/* =========================
+   6. HERO SECTION
+========================== */
+.hero-section {
+    background-color: #e9f7ff; /* Light blue background */
+    background-image: url('https://marketpro.template.wowtheme7.com/assets/images/bg/banner-bg.png'); /* Pattern if available */
+    background-size: cover;
+    position: relative;
+    padding: 5px 0; /* Standardized uniform padding setup */
+    overflow: hidden;
+    margin: 32px 15px;
+    border-radius: 40px;
+    margin-bottom: 32px;
+}
+
+.hero-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 600px;
+    z-index: 2;
+}
+
+.hero-subtitle {
+    color: var(--primary-green);
+    font-weight: 600;
+    font-size: 18px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.hero-title {
+    font-size: 36px;
+    line-height: 1.2;
+    color: #00263a;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.hero-action {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.btn-explore {
+    background: var(--primary-blue);
+    color: #fff;
+    padding: 16px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.hero-price {
+    font-size: 18px;
+    color: #444;
+}
+
+.hero-price strong {
+    color: #eb2c29; /* Red price */
+    font-size: 22px;
+}
+
+/* --- UPDATED HERO IMAGE SLIDER ENGINE LAYOUT --- */
+.hero-image {
+    position: relative;
+    width: 100%;
+    max-width: 480px; /* Aligns comfortably inside your layout parameters */
+    height: 450px;    /* Explicit container height prevents structural collapsing */
+    z-index: 2;
+   
+}
+
+
+/* Stacks images cleanly and initializes transparent hidden states */
+.hero-image .slide-img {
+    position: absolute;
+    top: 87;
+    left: 0;
+    width: 90%;
+    height: 90%;
+    object-fit: contain; /* Protects proportions against manual distortion */
+    
+    /* Cross-Fade Animators */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+}
+
+/* High visibility state managed continuously by your script file */
+.hero-image .slide-img.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Arrows styling */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 45px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    cursor: pointer;
+    z-index: 10;
+    border: none; /* Resets standard system focus rings cleanly */
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.slider-arrow:hover{
+    background-color: var(--primary-blue);
+    color: white;
+    transition: 0.5s ease;
+}
+
+/* Bottom Scroll Icon positioning layout */
+.scroll-down {
+    position: absolute;
+    bottom: -30px; 
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+}
+
+/* --- SCROLL TO TOP PROGRESS ARROW SYSTEM --- */
+.scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: transparent; 
+    border: none;
+    cursor: pointer;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    outline: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.2s ease;
+}
+
+.scroll-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-top:hover {
+    transform: translateY(-4px);
+}
+
+.progress-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg); 
+}
+
+.circle-bg {
+    fill: none;
+    stroke: #e2e8f0; 
+    stroke-width: 2; 
+}
+
+.circle-progress {
+    fill: none;
+    stroke: #0b7da3; 
+    stroke-width: 2.5; 
+    stroke-linecap: round; 
+    stroke-dasharray: 138.23;
+    stroke-dashoffset: 138.23; 
+    transition: stroke-dashoffset 0.08s linear;
+}
+
+.scroll-arrow-icon {
+    font-size: 16px;
+    color: #0b7da3; 
+    z-index: 5;
+    position: relative;
+    pointer-events: none;
+}
+
+/* Simple Initial Page Entry Keyframe */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Clean Responsive Adaptations */
+@media (max-width: 992px) {
+    .hero-wrapper { flex-direction: column; text-align: center; padding: 24px 0px 0px 0px;}
+    .hero-title { font-size: 36px; }
+    .hero-action { justify-content: center; flex-direction: column; gap: 15px; }
+    
+    /* Recalibrates dimensional height rules for standard compact mobile rows */
+    .hero-image { 
+        margin-top: 40px; 
+        height: 320px; 
+        max-width: 100%; 
+    }
+
+    .slider-arrow{
+       display :none;
+    }
+}
+
+
+/* ========================= 7. CATEGORIES SECTION (SEAMLESS CONTINUOUS LOOP) ========================== */
+.categories-section { 
+    padding-top: 50px; 
+    background: #fff; 
+    position: relative; 
+    width: 100%;
+    overflow: hidden;
+} 
+
+.slider-wrapper { 
+    position: relative; 
+    display: flex; 
+    align-items: center; 
+    overflow: hidden; 
+    width: 100%; 
+} 
+
+.category-slider { 
+    display: flex; 
+    overflow: hidden; 
+    width: 100%; 
+    padding: 20px 0; 
+} 
+
+/* THE SMOOTH SEAMLESS TRACK WRAPPER */ 
+.slider-track { 
+    display: flex; 
+    gap: 50px; 
+    width: max-content; 
+    will-change: transform;
+    /* FIXED: Using a linear infinite timeline ensures a smooth, continuous glide with no empty gaps */
+    animation: seamlessInfiniteScroll 22s linear infinite; 
+} 
+
+/* Pauses the movement instantly if a user hovers over an item to check details */ 
+.category-slider:hover .slider-track { 
+    animation-play-state: paused; 
+} 
+
+/* Category Card Layout Details */ 
+.category-item { 
+    text-align: center; 
+    flex: 0 0 auto; 
+    width: 170px; 
+    transition: transform 0.3s ease; 
+    cursor: pointer; 
+} 
+
+.category-img { 
+    width: 160px; 
+    height: 160px; 
+    background-color: #f1fbf1; 
+    border-radius: 50%; 
+    margin: 0 auto 20px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    transition: all 0.3s ease; 
+    overflow: hidden; 
+} 
+
+.category-img img { 
+    max-width: 100px; 
+    transition: transform 0.4s ease; 
+} 
+
+/* Hover Zoom Actions */ 
+.category-item:hover .category-img img { 
+    transform: scale(1.25); 
+} 
+
+.category-item:hover .category-img { 
+    transform: translateY(-8px); 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05); 
+} 
+
+.category-name { 
+    font-size: 18px; 
+    font-weight: 700; 
+    color: #222; 
+    margin-bottom: 5px; 
+    transition: color 0.3s ease; 
+} 
+
+.category-item:hover .category-name { 
+    color: var(--primary-blue, #0b7da3); 
+} 
+
+.product-count { 
+    font-size: 14px; 
+    color: #999; 
+    font-weight: 400; 
+} 
+
+/* Side Gradients for Clean Edge Transitions */ 
+.slider-wrapper::before, 
+.slider-wrapper::after { 
+    content: ""; 
+    position: absolute; 
+    top: 0; 
+    width: 120px; 
+    height: 100%; 
+    z-index: 5; 
+    pointer-events: none; 
+}
+
+/* Styling highlight applied when a user clicks and selects an item */
+.category-item.active-selection .category-img {
+    border: 3px solid var(--primary-blue, #0b7da3) !important;
+    box-shadow: 0 10px 25px rgba(11, 125, 163, 0.2) !important;
+    transform: scale(1.05);
+}
+
+.category-item.active-selection .category-name {
+    color: var(--primary-blue, #0b7da3) !important;
+    font-weight: 800;
+}
+
+
+/* FIXED: Seamlessly shifts exactly halfway (-50%). Since cards are duplicated, this creates a flawless loop */
+@keyframes seamlessInfiniteScroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* ==========================================================================
+   STRICT RESPONSIVE DESKTOP & MOBILE RESETS
+   ========================================================================== */ 
+@media (max-width: 768px) { 
+    .categories-section {
+        padding-top: 30px;
+    }
+
+    .category-img { 
+        width: 120px; 
+        height: 120px; 
+        margin-bottom: 12px;
+    } 
+    
+    .category-img img {
+        max-width: 75px;
+    }
+
+    .category-name { 
+        font-size: 15px; 
+    } 
+    
+    .product-count {
+        font-size: 12px;
+    }
+
+    .category-item { 
+        width: 130px; 
+    } 
+    
+    .slider-track { 
+        gap: 24px; 
+        /* FIXED: Reuses the reliable percentage timeline loop but optimizes speed for smaller screens */
+        animation: seamlessInfiniteScroll 16s linear infinite; 
+    } 
+}
+
+/* =========================
+   8. BANNERS SECTION
+========================== */
+.banners-section {
+    padding: 60px 0;
+    background: #fff;
+}
+
+.banner-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.banner-card {
+    position: relative;
+    border-radius: 20px;
+    padding: 25px;
+    height: 250px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.banner-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+/* Text Styling */
+.banner-text {
+    z-index: 2;
+    max-width: 60%;
+}
+
+.banner-text h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.banner-text p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.banner-text p span {
+    color: #eb2c29; /* Red Price */
+    font-weight: 700;
+}
+
+/* Button Styling */
+.btn-shop {
+    background: var(--primary-blue);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition);
+}
+
+.btn-shop:hover {
+    background: var(--primary-green);
+}
+
+/* Images */
+.banner-card img {
+    position: absolute;
+    right: 0px;
+    z-index: 1;
+    transition: transform 0.4s ease;
+}
+
+.banner-card:hover img {
+    transform: scale(1.1);
+}
+
+/* Background Colors to match image */
+.bg-light-blue  { background-color: #e9f3ff; }
+.bg-light-grey  { background-color: #f3f4f6; }
+.bg-light-white { background-color: #f9f9f9; }
+.bg-light-cream { background-color: #fff8f0; }
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .banner-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 576px) {
+    .banner-grid { grid-template-columns: 1fr; }
+    .banner-card { height: 200px; }
+}
+
+/* ========================= 9. FLASH SALES (SEAMLESS INFINITE LOOP) ========================== */ 
+.flash-sales { 
+    padding: 10px 15px; /* Added minor horizontal side safety gutters for mobile wrappers */
+    background: #fff; 
+    font-family: sans-serif; 
+} 
+
+.section-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 30px; 
+    gap: 15px;
+} 
+
+.section-title { 
+    font-size: 24px; 
+    font-weight: 800; 
+    color: #00263a; 
+    margin: 0; 
+} 
+
+.header-actions { 
+    display: flex; 
+    align-items: center; 
+    gap: 20px; 
+} 
+
+.view-all { 
+    color: #666; 
+    font-weight: 600; 
+    font-size: 14px; 
+    text-decoration: none; 
+    transition: color 0.3s ease; 
+} 
+
+.view-all:hover { 
+    color: #0b7da3; 
+} 
+
+.slider-arrows { 
+    display: flex; 
+    gap: 8px; 
+} 
+
+.arrow-btn { 
+    width: 36px; 
+    height: 36px; 
+    border-radius: 50%; 
+    border: 1px solid #e2e8f0; 
+    background: #fff; 
+    color: #444; 
+    cursor: pointer; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 12px; 
+    transition: all 0.3s ease; 
+    outline: none; 
+} 
+
+.arrow-btn:hover { 
+    background: #0b7da3; 
+    color: #fff; 
+    border-color: #0b7da3; 
+} 
+
+.flash-slider-wrapper { 
+    position: relative; 
+    width: 100%; 
+    overflow: hidden; 
+} 
+
+.flash-slider-viewport { 
+    display: flex; 
+    width: 100%; 
+    padding: 15px 0; 
+} 
+
+.flash-track { 
+    display: flex; 
+    gap: 24px; /* Space between cards */ 
+    width: max-content; 
+    will-change: transform; 
+} 
+
+/* Card item styles */ 
+.product-card { 
+    flex: 0 0 auto; 
+    width: 245px; 
+    border: 1px solid #f2f5f8; 
+    border-radius: 16px; 
+    padding: 16px; 
+    background: #fff; 
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; 
+    position: relative; 
+    cursor: pointer; 
+    box-sizing: border-box;
+} 
+
+.product-img-wrapper { 
+    width: 100%; 
+    height: 160px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    position: relative; 
+    margin-bottom: 12px; 
+    overflow: hidden; 
+} 
+
+.product-img-wrapper img { 
+    max-width: 130px; 
+    max-height: 130px; 
+    object-fit: contain; 
+    transition: transform 0.4s ease; 
+} 
+
+/* =================================================== HOVER ZOOM, LIFT, AND SHADOW ACTIONS (EXACT PORT) =================================================== */ 
+.product-card:hover .product-img-wrapper img { 
+    transform: scale(1.25); 
+} 
+
+.product-card:hover { 
+    transform: translateY(-8px); 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05); 
+    border-color: var(--primary-blue, #0b7da3); 
+} 
+
+.product-name { 
+    transition: color 0.3s ease; 
+} 
+
+.product-card:hover .product-name { 
+    color: var(--primary-blue, #0b7da3); 
+} 
+
+.add-btn { 
+    position: absolute; 
+    top: 0; 
+    right: 0; 
+    background: #e9f5fa; 
+    color: #0b7da3; 
+    border: none; 
+    padding: 8px 16px; 
+    border-radius: 30px; 
+    font-size: 13px; 
+    font-weight: 700; 
+    cursor: pointer; 
+    display: flex; 
+    align-items: center; 
+    gap: 6px; 
+    transition: all 0.3s ease; 
+    z-index: 5; 
+} 
+
+.add-btn:hover { 
+    background: #0b7da3; 
+    color: #fff; 
+} 
+
+.product-price { 
+    margin-bottom: 6px; 
+    display: flex;
+    align-items: baseline;
+} 
+
+.product-price .current { 
+    color: #222; 
+    font-weight: 800; 
+    font-size: 15px; 
+} 
+
+.product-price .qty { 
+    color: #888; 
+    font-size: 13px; 
+    font-weight: 400; 
+    margin-left: 2px;
+} 
+
+.product-price .old { 
+    color: #aaa; 
+    text-decoration: line-through; 
+    font-size: 13px; 
+    margin-left: auto; /* Pushes the strikethrough price nicely to the right edge */
+} 
+
+.product-rating { 
+    display: flex; 
+    align-items: center; 
+    gap: 4px; 
+    margin-bottom: 8px; 
+    font-size: 12px; 
+} 
+
+.product-rating .stars { 
+    color: #ffa800; 
+    font-weight: 700; 
+} 
+
+.product-rating .count { 
+    color: #aaa; 
+} 
+
+.product-name { 
+    font-size: 14px; 
+    font-weight: 700; 
+    color: #00263a; 
+    line-height: 1.4; 
+    margin: 0 0 12px 0; 
+    height: 38px; 
+    overflow: hidden; 
+    display: -webkit-box; 
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical; 
+} 
+
+.product-progress { 
+    margin-top: 10px; 
+} 
+
+.product-progress .progress-bar { 
+    width: 100%; 
+    height: 5px; 
+    background: #f0f4f8; 
+    border-radius: 10px; 
+    overflow: hidden; 
+    margin-bottom: 6px; 
+} 
+
+.product-progress .fill { 
+    height: 100%; 
+    background: #0b7da3; 
+    border-radius: 10px; 
+} 
+
+.sold-text { 
+    font-size: 11px; 
+    font-weight: 600; 
+    color: #77838f; 
+} 
+
+/* ==========================================================================
+   STRICT RESPONSIVENESS AND MOBILE OVERRIDES
+   ========================================================================== */ 
+
+@media (max-width: 992px) { 
+    .product-card { 
+        width: 210px; 
+    } 
+    .flash-track {
+        gap: 16px; /* Slightly tighter column spacing for standard tablet screens */
+    }
+}
+
+/* Medium Tablets & Large Mobile Screens */
+@media (max-width: 768px) {
+    /* FIXED: Stacks the section title above view-all/arrows to prevent layout squishing */
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+    
+    .header-actions {
+        width: 100%;
+        justify-content: space-between; /* Keeps view-all on left, arrows on right */
+    }
+}
+
+/* Small Smartphone Touchscreens Viewports */
+@media (max-width: 480px) {
+    .flash-sales {
+        padding: 10px 8px; /* Tighter margins preserve available screen real estate */
+    }
+
+    /* FIXED: Compresses card scaling metrics so swipe movements look beautiful on mobile */
+    .product-card {
+        width: 185px;
+        padding: 12px;
+        border-radius: 12px;
+    }
+    
+    .product-img-wrapper {
+        height: 130px; /* Reduced box frame boundaries so the content maps proportionally */
+        margin-bottom: 8px;
+    }
+    
+    .product-img-wrapper img {
+        max-width: 105px;
+        max-height: 105px;
+    }
+    
+    .product-name {
+        font-size: 13px;
+        height: 36px;
+        margin-bottom: 8px;
+    }
+
+    .product-price .current {
+        font-size: 14px;
+    }
+
+    .product-price .qty,
+    .product-price .old {
+        font-size: 11px;
+    }
+    
+    .add-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}
+
+/* ==========================================================================
+   10. OFFERS SECTION GRID COMPONENT (RESTYLED TO MATCH STORE PROMOTIONS)
+   ========================================================================== */
+
+/* Main Grid Layout Wrapper */
+.offers-grid { 
+    display: flex; /* Swapped from grid to match .promo-cards-container flex architecture */
+    gap: 24px; 
+    width: 100%;
+    max-width: 1200px; /* Matched to promotions wrapper layout constraints */
+    margin: 40px auto 0 auto; 
+} 
+
+/* Base Card Object Styles */
+.offer-card { 
+    flex: 1; /* Matched promotions card flex sizing distribution */
+    min-height: 260px; /* Matched promotions base card height rules */
+    border-radius: 16px; /* Matched promotions card corner styling */
+    padding: 32px; /* Matched promotions inner base padding dimensions */
+    display: flex; 
+    align-items: center; 
+    position: relative; 
+    overflow: hidden; /* Ensures background graphics cover entire area cleanly */
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    transition: all 0.2s ease-in-out; /* Matched promotions card transition curves */
+    z-index: 1; 
+} 
+
+/* LEFT CARD (Tech Offer Structural Alignments) */ 
+.tech-offer { 
+    background-image: url('https://marketpro.template.wowtheme7.com/assets/images/bg/flash-sale-bg1.png'); 
+    justify-content: center; /* Maintained layout balance while absorbing theme dynamics */
+} 
+
+/* RIGHT CARD (Combo Offer Structural Alignments) */ 
+.combo-offer { 
+    background-image: url('https://marketpro.template.wowtheme7.com/assets/images/bg/flash-sale-bg2.png'); 
+    justify-content: flex-start;
+} 
+
+/* Isolated Structural Customizations from First Card Rules Injection Port */
+.offers-grid .offer-card:nth-child(1) .offer-content {
+    position: relative; 
+    left: 25px; /* Injected the exact offset alignment styling from promotion's first card */
+}
+
+/* Card Content Container Limits */
+.offer-content { 
+    z-index: 2; 
+    position: relative; 
+    max-width: 65%; /* Swapped down from 60% to match promotion content area constraints */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Clean base-left positioning workflow */
+} 
+
+/* Custom Image Element Layer Handlers (For Tech Offer graphic overlays if needed) */
+.tech-offer .offer-image img { 
+    max-width: 200px; 
+    margin-right: 30px; 
+    z-index: 2; 
+} 
+
+/* Typography & Sub-elements */
+.offer-title { 
+    font-family: 'Poppins', sans-serif; /* Matched promotion text system */
+    font-size: 1.6rem; /* Swapped from 27px to match promo-title sizes */
+    font-weight: 700; 
+    color: #0b122f; /* Swapped from #222 to promotion dark theme primary color */
+    line-height: 1.2; 
+    margin-top: 0;
+    margin-bottom: 8px; 
+} 
+
+.offer-subtitle { 
+    font-family: 'Poppins', sans-serif; /* Matched promotion text system */
+    font-size: 0.85rem; /* Swapped from 15px to match promo-schedule descriptions */
+    color: #555555; /* Swapped from #666 to match promotion gray description tone */
+    margin-bottom: 24px; /* Scaled down to match text baseline gaps */
+} 
+
+/* Countdown Blocks Sizing */ 
+.countdown { 
+    display: flex; 
+    gap: 10px; 
+    margin-bottom: 24px; 
+} 
+
+/* Countdown Boxes (Styled using Promotion Design system metrics) */
+.time-box { 
+    background: #ffffff; 
+    border: 1px solid #e5e7eb; /* Integrated promo button subtle border parameters */
+    border-radius: 8px; 
+    font-weight: 700; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02); 
+    min-width: 60px; 
+    text-align: center; 
+    font-size: 14px; 
+    padding: 10px; 
+    box-sizing: border-box;
+} 
+
+.time-box.blue { 
+    background-color: var(--primary-blue, #0b7ea3); /* Retained your custom blue variable hook */
+    color: #ffffff; 
+    border-color: var(--primary-blue, #0b7ea3);
+} 
+
+/* Action Link Buttons (Remapped completely to Promo Button specs) */ 
+.btn-shop-now { 
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center;
+    gap: 10px; 
+    padding: 12px 28px; /* Swapped from 14px 30px to match promo-btn padding dimensions */
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem; /* Swapped from 13px to match promo-btn text sizing */
+    font-weight: 600; 
+    text-decoration: none; /* Removes link underline defaults */
+    border-radius: 50px; 
+    background-color: var(--primary-blue, #0b7ea3); /* Default card button uses primary blue */
+    color: #ffffff; 
+    pointer-events: auto; /* Re-enables clicks/hovers for this child element layer */ 
+    transition: all 0.2s ease-in-out; /* Adjusted animation acceleration models to match promo styles */
+} 
+
+.btn-shop-now.green { 
+    background-color: #ffffff; /* Flipped right button color schema to mirror .promo-btn-white features */
+    color: #0b122f; 
+    border: 1px solid #e5e7eb; 
+} 
+
+/* Interactive Hover States matched to Promotion specs */
+.btn-shop-now:hover { 
+    filter: brightness(1.1); /* Kept your brightness boost but smoothly integrated into the new layout transition */
+} 
+
+.btn-shop-now.green:hover {
+    background-color: #f9fafb; /* Matches promotion white button hover */
+    border-color: #d1d5db;
+    filter: none;
+}
+
+/* ==========================================================================
+   BREAKPOINT RESPONSIVENESS MEDIA QUERIES (MATCHED TO PROMOTION STEPS)
+   ========================================================================== */ 
+@media (max-width: 900px) { /* Swapped breakpoint from 992px to 900px to match promotions framework */
+    .offers-grid { 
+        flex-direction: column; /* Collapses into stacked viewports cleanly */
+        gap: 16px; 
+    } 
+    
+    .offer-card { 
+        min-height: 240px; /* Scaled down base limits to match responsive promotions height profiles */
+        padding: 24px; 
+    } 
+    
+    .offer-content { 
+        max-width: 100%; /* Allows space deployment for single stacked cards viewports */
+    } 
+    
+    /* Clean removal of offsets on mobile screens to prevent display asset layout truncation faults */
+    .offers-grid .offer-card:nth-child(1) .offer-content {
+        left: 0;
+    }
+
+    .offer-title { 
+        font-size: 1.5rem; 
+    } 
+} 
+
+@media (max-width: 480px) { 
+    .offer-card {
+        padding: 24px 16px;
+    }
+
+    .offer-title { 
+        font-size: 1.35rem; /* Swapped to match promotion responsive mobile text scales */
+    } 
+    
+    .countdown { 
+        gap: 6px; 
+    } 
+    
+    .time-box { 
+        min-width: 50px; 
+        padding: 8px; 
+        font-size: 12px; 
+    } 
+}
+
+/* ==========================================================================
+   RECOMMENDED SECTION COMPONENT STYLES (RESTYLED TO MATCH FLASH SALES)
+   ========================================================================== */
+
+.rfy-section { 
+    padding: 40px 15px; /* Added slight side padding container protection for mobile */ 
+    background: #fff; 
+    font-family: sans-serif; 
+    box-sizing: border-box; 
+    width: 100%; 
+} 
+
+.rfy-container { 
+    max-width: 1320px; 
+    margin: 0 auto; 
+} 
+
+/* Header Area styling */ 
+.rfy-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 30px; 
+    gap: 20px;
+} 
+
+.rfy-section-title { 
+    font-size: 24px; 
+    font-weight: 800; 
+    color: #00263a; 
+    margin: 0; 
+    white-space: nowrap;
+} 
+
+.rfy-categories-nav { 
+    display: flex; 
+    align-items: center; 
+    gap: 20px; 
+} 
+
+.rfy-category-btn { 
+    background: none; 
+    border: none; 
+    color: #666; 
+    font-weight: 600; 
+    font-size: 14px; 
+    cursor: pointer; 
+    text-decoration: none; 
+    padding: 4px 0; 
+    border-radius: 0; 
+    white-space: nowrap; 
+    transition: all 0.3s ease; 
+} 
+
+.rfy-category-btn:hover, 
+.rfy-category-btn.rfy-active { 
+    border-radius: 18px; 
+    background: #0b7da3; 
+    color: white; 
+    padding: 4px 18px; 
+    font-weight: 600; 
+} 
+
+/* --- CSS Grid Rules (Overridden with Flash Sales Card Dimension System) --- */ 
+.rfy-product-grid { 
+    display: grid; 
+    grid-template-columns: repeat(5, minmax(0, 1fr)); 
+    gap: 24px; 
+} 
+
+/* Card Element Structure */ 
+.rfy-product-card { 
+    background-color: #fff; 
+    border: 1px solid #f2f5f8; 
+    border-radius: 16px; 
+    padding: 16px; 
+    position: relative; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+    cursor: pointer; 
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; 
+} 
+
+/* Conditional Sale and Event Badges */ 
+.rfy-status-badge { 
+    position: absolute; 
+    top: 12px; 
+    left: 12px; 
+    font-size: 11px; 
+    font-weight: 700; 
+    color: #ffffff; 
+    padding: 3px 8px; 
+    z-index: 5; 
+    border-radius: 8px 0px 8px 0px; 
+} 
+
+.rfy-badge-sale { background-color: #e54d4d; } 
+.rfy-badge-new { background-color: #ff9f29; } 
+.rfy-badge-best { background-color: #0b7da3; } 
+
+/* Image containment layer */ 
+.rfy-image-wrapper { 
+    width: 100%; 
+    height: 160px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    position: relative; 
+    margin-bottom: 12px; 
+    overflow: hidden; 
+} 
+
+.rfy-image-wrapper img { 
+    max-height: 130px; 
+    max-width: 130px; 
+    object-fit: contain; 
+    transition: transform 0.4s ease; 
+} 
+
+/* ========================================================================== 
+   HOVER ZOOM, LIFT, AND SHADOW ACTIONS (EXACT PORT FROM FLASH SALES) 
+   ========================================================================== */ 
+.rfy-product-card:hover .rfy-image-wrapper img { 
+    transform: scale(1.25); 
+} 
+
+.rfy-product-card:hover { 
+    transform: translateY(-8px); 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05); 
+    border-color: var(--primary-blue, #0b7da3); 
+} 
+
+.rfy-product-card:hover .rfy-product-name { 
+    color: var(--primary-blue, #0b7da3); 
+} 
+
+/* Info Details layer formatting */ 
+.rfy-card-body { 
+    flex-grow: 1; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 0; 
+} 
+
+.rfy-product-name { 
+    font-size: 14px; 
+    color: #00263a; 
+    font-weight: 700; 
+    line-height: 1.4; 
+    margin: 0 0 12px 0; 
+    height: 38px; 
+    overflow: hidden; 
+    display: -webkit-box; 
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical; 
+    transition: color 0.3s ease; 
+} 
+
+.rfy-merchant-name { 
+    font-size: 11px; 
+    color: #77838f; 
+    margin: 0 0 4px 0; 
+} 
+
+/* Typography rows rules */ 
+.rfy-pricing-row { 
+    display: flex; 
+    align-items: baseline; 
+    gap: 4px; 
+    margin-top: 0; 
+    margin-bottom: 6px; 
+} 
+
+.rfy-current-price { 
+    font-size: 15px; 
+    font-weight: 800; 
+    color: #222; 
+} 
+
+.rfy-price-unit { 
+    font-size: 13px; 
+    color: #888; 
+    font-weight: 400; 
+} 
+
+.rfy-old-price { 
+    font-size: 13px; 
+    color: #aaa; 
+    text-decoration: line-through; 
+    margin-left: auto; /* Pushes the old price cleanly to the right edge */
+} 
+
+.rfy-ratings-row { 
+    display: flex; 
+    align-items: center; 
+    gap: 4px; 
+    font-size: 12px; 
+    margin-bottom: 8px; 
+} 
+
+.rfy-star-icon { 
+    color: #ffa800; 
+    font-weight: 700; 
+} 
+
+.rfy-score { 
+    font-weight: 700; 
+    color: #222; 
+} 
+
+.rfy-count { 
+    color: #aaa; 
+} 
+
+/* Add To Cart Action button styling */ 
+.rfy-add-cart-btn { 
+    width: 100%; 
+    background: #e9f5fa; 
+    color: #0b7da3; 
+    border: none; 
+    border-radius: 30px; 
+    padding: 10px 16px; 
+    font-size: 13px; 
+    font-weight: 700; 
+    cursor: pointer; 
+    margin-top: 14px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 6px; 
+    transition: all 0.3s ease; 
+    position: relative; 
+    z-index: 5; 
+} 
+
+.rfy-add-cart-btn:hover { 
+    background: #0b7da3; 
+    color: #fff; 
+} 
+
+/* ==========================================================================
+   STRICT MOBILE & TABLET RESPONSIVE OVERRIDES
+   ========================================================================== */ 
+
+@media (max-width: 1200px) { 
+    .rfy-product-grid { 
+        grid-template-columns: repeat(4, minmax(0, 1fr)); 
+    } 
+} 
+
+@media (max-width: 992px) { 
+    /* FIXED: Stacks the title and categories vertically on smaller tablet viewports to avoid text overlap faults */
+    .rfy-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    /* FIXED: Unlocks a native smooth swipe scroller mechanism on mobile navigation options */
+    .rfy-categories-nav {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 8px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Hides horizontal system scroll bars on Firefox */
+    }
+    
+    .rfy-categories-nav::-webkit-scrollbar {
+        display: none; /* Hides horizontal system scroll bars on Chrome/Safari */
+    }
+
+    .rfy-product-grid { 
+        grid-template-columns: repeat(3, minmax(0, 1fr)); 
+        gap: 16px;
+    } 
+} 
+
+@media (max-width: 650px) { 
+    .rfy-section { 
+        padding: 20px 10px; 
+    } 
+    
+    .rfy-product-grid { 
+        grid-template-columns: repeat(2, minmax(0, 1fr)); 
+        gap: 12px; 
+    } 
+    
+    .rfy-product-card {
+        padding: 12px; /* Marginally down-scaled internal card padding to increase image canvas room */
+        border-radius: 12px;
+    }
+    
+    .rfy-image-wrapper {
+        height: 130px; /* Reduced box frame boundaries so the content maps proportionally on phones */
+    }
+    
+    .rfy-image-wrapper img {
+        max-height: 110px;
+        max-width: 110px;
+    }
+    
+    .rfy-product-name {
+        font-size: 13px;
+        height: 36px;
+        margin-bottom: 8px;
+    }
+    
+    .rfy-add-cart-btn {
+        padding: 8px 12px;
+        font-size: 12px;
+        margin-top: 10px;
+    }
+} 
+
+@media (max-width: 400px) { 
+    /* FIXED: Switches grid view cleanly down to a single grid layout block row so mobile views never look squished */
+    .rfy-product-grid { 
+        grid-template-columns: repeat(1, minmax(0, 1fr)); 
+        gap: 16px;
+    } 
+}
+
+/* ==========================================
+   STORE PROMOTIONS SECTION STYLES
+   ========================================== */
+
+/* Main Section Wrapper */
+.store-promotions-section {
+    padding: 40px 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: transparent; /* Seamlessly blends into your site's wrapper */
+}
+
+/* Flex Container for Grid/Flex Alignment */
+.store-promotions-section .promo-cards-container {
+    display: flex;
+    gap: 24px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Base Card Object Styles */
+.store-promotions-section .promo-card {
+    flex: 1;
+    min-height: 260px;
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Specific Card Modifier Classes */
+.store-promotions-section .promo-card-beer {
+    /* Replace with your beer card background graphic */
+    background-image: url('https://marketpro.template.wowtheme7.com/assets/images/bg/offer-bg-img1.png'); 
+    justify-content: center;
+
+}
+
+.store-promotions-section .promo-card-milk {
+    /* Replace with your milk/juice card background graphic */
+    background-image: url('https://marketpro.template.wowtheme7.com/assets/images/bg/offer-bg-img2.png'); 
+}
+
+/* Content layout constraints */
+.store-promotions-section .promo-card-content {
+    max-width: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Typography & Sub-elements */
+.store-promotions-section .promo-badge {
+       border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    margin-bottom: 16px;
+    background: white;
+    border: 2px solid white;
+    padding: 10px; /* Added 'px' unit to fix the broken styling value */
+    box-sizing: border-box;
+}
+
+/* Targets ONLY the content wrapper wrapper of the first card */
+.promo-cards-container .promo-card:nth-child(1) .promo-card-content {
+   position : relative;
+   left :  25px;
+}
+
+
+.store-promotions-section .promo-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #0b122f;
+    line-height: 1.2;
+    margin-bottom: 8px;
+}
+
+.store-promotions-section .promo-schedule {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    color: #555555;
+    margin-bottom: 24px;
+}
+
+.store-promotions-section .promo-expiry {
+    margin-left: 6px;
+    color: #777777;
+}
+
+.store-promotions-section .promo-expiry-highlight {
+    color: #10b981;
+    font-weight: 600;
+}
+
+/* Call To Action Buttons */
+.store-promotions-section .promo-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.2s ease-in-out;
+}
+
+.store-promotions-section .promo-btn-green {
+    background-color: #10b981;
+    color: #ffffff;
+}
+
+.store-promotions-section .promo-btn-green:hover {
+    background-color: #059669;
+}
+
+.store-promotions-section .promo-btn-white {
+    background-color: #ffffff;
+    color: #0b122f;
+    border: 1px solid #e5e7eb;
+}
+
+.store-promotions-section .promo-btn-white:hover {
+    background-color: #f9fafb;
+    border-color: #d1d5db;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN SYSTEM
+   ========================================== */
+@media (max-width: 900px) {
+    .store-promotions-section .promo-cards-container {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .store-promotions-section .promo-card {
+        min-height: 240px;
+        padding: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .store-promotions-section .promo-card-content {
+        max-width: 100%;
+    }
+    
+    .store-promotions-section .promo-title {
+        font-size: 1.35rem;
+    }
+}
+
+/* ------------------------------------------- */
+/* Container and Section Core Definitions      */
+/* ------------------------------------------- */
+.hot-deals-section { 
+    padding: 40px 20px; 
+    background-color: #fff; 
+    font-family: sans-serif; 
+    width: 100%; 
+    box-sizing: border-box; 
+} 
+
+.hd-container { 
+    max-width: 1320px; 
+    margin: 0 auto; 
+} 
+
+/* Header Area Components */ 
+.hd-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 24px; 
+    gap: 15px;
+} 
+
+.hd-section-title { 
+    font-size: 24px; 
+    font-weight: 800; 
+    color: #0b1e46; 
+    margin: 0; 
+} 
+
+.hd-header-actions { 
+    display: flex; 
+    align-items: center; 
+    gap: 20px; 
+} 
+
+.hd-view-all { 
+    color: #666; 
+    font-size: 14px; 
+    font-weight: 600; 
+    text-decoration: none; 
+    transition: color 0.3s ease; 
+} 
+
+.hd-view-all:hover { 
+    color: #0b7da3; 
+} 
+
+.hd-slider-arrows { 
+    display: flex; 
+    gap: 8px; 
+} 
+
+.hd-arrow-btn { 
+    width: 36px; 
+    height: 36px; 
+    border-radius: 50%; 
+    border: 1px solid #e2e8f0; 
+    background: #fff; 
+    color: #444; 
+    cursor: pointer; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    transition: all 0.3s ease; 
+} 
+
+.hd-arrow-btn:hover { 
+    background: #0b7da3; 
+    color: #fff; 
+    border-color: #0b7da3; 
+} 
+
+/* Layout Management Block */ 
+.hd-main-layout { 
+    display: grid; 
+    grid-template-columns: 400px 1fr; /* Crisp layout tracking fields */
+    gap: 20px; 
+    align-items: stretch; 
+} 
+
+/* Left Blue Banner Card Layout Rules */ 
+.hd-banner-card { 
+    border-radius: 16px; 
+    padding: 43px 40px; 
+    background-color: #0b7ea3; 
+    background-image: url('https://marketpro.template.wowtheme7.com/assets/images/thumbs/basket-img.png'); 
+    background-position: right bottom; 
+    background-repeat: no-repeat; 
+    background-size: 210px auto; 
+    min-height: 400px; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+    color: #fff; 
+    position: relative; 
+    box-sizing: border-box;
+} 
+
+.hd-banner-content { 
+    position: relative; 
+    z-index: 2; 
+} 
+
+.hd-banner-badge { 
+    background-color: #ffc233; 
+    color: #222; 
+    padding: 6px 12px; 
+    border-radius: 6px; 
+    font-size: 12px; 
+    font-weight: 700; 
+    display: inline-block; 
+    width: max-content; 
+    margin-bottom: 20px; 
+} 
+
+.hd-banner-title { 
+    font-size: 32px; 
+    font-weight: 800; 
+    margin: 0 0 10px 0; 
+    line-height: 1.2; 
+} 
+
+.hd-banner-subtitle { 
+    font-size: 14px; 
+    color: rgba(255,255,255,0.8); 
+    margin: 0 0 30px 0; 
+} 
+
+.hd-countdown { 
+    display: flex; 
+    gap: 8px; 
+    margin-bottom: auto; 
+} 
+
+.hd-time-box { 
+    background: #fff; 
+    color: #222; 
+    padding: 10px 6px; 
+    border-radius: 6px; 
+    font-size: 12px; 
+    min-width: 52px; 
+    text-align: center; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
+} 
+
+.hd-time-box strong { 
+    display: block; 
+    font-size: 15px; 
+    font-weight: 600; 
+} 
+
+.hd-btn-explore { 
+    background: #fff; 
+    color: #222; 
+    text-decoration: none; 
+    padding: 14px 24px; 
+    border-radius: 50px; 
+    font-weight: 700; 
+    font-size: 14px; 
+    text-align: center; 
+    display: inline-block; 
+    margin-top: 30px; 
+    transition: transform 0.3s ease; 
+    width: max-content;
+} 
+
+.hd-btn-explore:hover { 
+    transform: translateY(-2px); 
+} 
+
+/* Slider Track Systems Viewport architecture */ 
+.hd-slider-wrapper { 
+    overflow: hidden; 
+    width: 100%; 
+    display: flex; 
+} 
+
+.hd-slider-viewport { 
+    width: 100%; 
+    overflow: hidden; 
+    position: relative; 
+} 
+
+.hd-track { 
+    display: flex; 
+    gap: 12px; /* Increased slightly for mobile spacing breathing room */
+    width: max-content; 
+    height: 100%; 
+    will-change: transform; 
+} 
+
+/* Dynamic Vertical Product Card Item Configuration Rules */ 
+.hd-product-card { 
+    width: 234px; 
+    height: 100%; 
+    background: #fff; 
+    border: 1px solid #f2f5f8; 
+    border-radius: 16px; 
+    padding: 16px; 
+    box-sizing: border-box; 
+    position: relative; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; 
+} 
+
+.hd-product-card:hover { 
+    transform: translateY(-6px); 
+    border-color: #0b7da3; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.04); 
+} 
+
+/* Top Floating Micro-add controls handler */ 
+.hd-add-btn { 
+    position: absolute; 
+    top: 16px; 
+    right: 16px; 
+    background: #e9f5fa; 
+    color: #0b7da3; 
+    border: none; 
+    padding: 6px 14px; 
+    border-radius: 20px; 
+    font-size: 12px; 
+    font-weight: 700; 
+    cursor: pointer; 
+    z-index: 5; 
+    transition: all 0.2s ease; 
+} 
+
+.hd-add-btn:hover { 
+    background: #0b7da3; 
+    color: #fff; 
+} 
+
+.hd-image-wrapper { 
+    width: 100%; 
+    height: 160px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    margin-bottom: 16px; 
+    overflow: hidden; 
+} 
+
+.hd-image-wrapper img { 
+    max-width: 100%; 
+    max-height: 100%; 
+    object-fit: contain; 
+    transition: transform 0.4s ease; 
+} 
+
+.hd-product-card:hover .hd-image-wrapper img { 
+    transform: scale(1.1); 
+} 
+
+.hd-card-body { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 8px; 
+    flex-grow: 1; 
+    justify-content: flex-end; 
+} 
+
+.hd-pricing-row { 
+    display: flex; 
+    align-items: baseline; 
+    gap: 4px; 
+} 
+
+.hd-current-price { 
+    font-size: 15px; 
+    font-weight: 800; 
+    color: #222; 
+} 
+
+.hd-price-unit { 
+    font-size: 12px; 
+    color: #888; 
+} 
+
+.hd-old-price { 
+    font-size: 12px; 
+    color: #aaa; 
+    text-decoration: line-through; 
+    margin-left: auto; 
+} 
+
+.hd-ratings-row { 
+    display: flex; 
+    align-items: center; 
+    gap: 4px; 
+    font-size: 12px; 
+} 
+
+.hd-star-icon { 
+    color: #ffa800; 
+} 
+
+.hd-score { 
+    font-weight: 700; 
+    color: #222; 
+} 
+
+.hd-count { 
+    color: #aaa; 
+} 
+
+.hd-product-name { 
+    font-size: 14px; 
+    font-weight: 700; 
+    color: #0b1e46; 
+    line-height: 1.4; 
+    margin: 0; 
+    height: 38px; 
+    overflow: hidden; 
+    display: -webkit-box; 
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical; 
+} 
+
+/* Product Completion progress line layers rules */ 
+.hd-progress-wrapper { 
+    margin-top: 4px; 
+} 
+
+.hd-progress-bar { 
+    width: 100%; 
+    height: 6px; 
+    background: #f0f4f8; 
+    border-radius: 10px; 
+    overflow: hidden; 
+    margin-bottom: 6px; 
+} 
+
+.hd-progress-fill { 
+    height: 100%; 
+    background: #0b7da3; 
+    border-radius: 10px; 
+} 
+
+.hd-sold-text { 
+    font-size: 11px; 
+    font-weight: 600; 
+    color: #77838f; 
+} 
+
+/* ==========================================================================
+   STRICT MOBILE & MID-SCREEN LAYOUT RESPONSIVE BREAKPOINTS
+   ========================================================================== */ 
+
+/* Intermediate Scale Viewports (Max 1150px) */
+@media (max-width: 1150px) {
+    .hd-main-layout {
+        grid-template-columns: 320px 1fr; /* Safely downsizes the banner width before collapsing */
+    }
+    .hd-banner-card {
+        padding: 30px 20px;
+        background-size: 160px auto; /* Compresses basket overlay proportions */
+    }
+}
+
+/* Tablet & Smaller Layouts Landscape/Portrait (Max 992px) */ 
+@media (max-width: 992px) { 
+    .hd-main-layout { 
+        grid-template-columns: 1fr; /* Collapses columns vertically */
+    } 
+    .hd-banner-card { 
+        min-height: auto; 
+        padding: 35px 25px;
+        background-size: 180px auto;
+    } 
+    .hd-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+} 
+
+/* Smartphones Breakpoint Sizing Rules (Max 480px) */ 
+@media (max-width: 480px) { 
+    .hot-deals-section {
+        padding: 25px 12px; /* Pulls text margins out safely on tight viewports */
+    }
+    .hd-banner-card {
+        padding: 24px 16px;
+        background-size: 120px auto; /* Compact size avoids overlapping text fields completely */
+    }
+    .hd-banner-title {
+        font-size: 26px;
+    }
+    .hd-countdown {
+        gap: 4px;
+    }
+    .hd-time-box {
+        min-width: 45px;
+        padding: 8px 4px;
+    }
+    .hd-time-box strong {
+        font-size: 13px;
+    }
+    .hd-btn-explore {
+        width: 100%; /* Expands button size across screen width to aid user interaction clicks */
+        box-sizing: border-box;
+        margin-top: 20px;
+    }
+    .hd-product-card { 
+        width: 200px; /* Perfectly aligns card margins inside mobile swipe/slider modules */
+        padding: 12px;
+    } 
+    .hd-image-wrapper {
+        height: 130px;
+    }
+}
+
+
+
+/* ==========================================
+   PROMO COUPON BANNER SYSTEM
+   ========================================== */
+
+.promo-coupon-section {
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #ffffff;
+}
+
+/* Main Alert Box Wrapper Styles */
+.promo-coupon-section .promo-coupon-container {
+    max-width: 1320px;
+    margin: 0 auto;
+    background-color: #eaf6fc; /* Soft light blue banner fill */
+    border: 1px dashed #9fd2f1; /* Precise dashed border line color tracking */
+    border-radius: 8px;
+    padding: 14px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    font-family: sans-serif;
+}
+
+/* Typography row adjustments */
+.promo-coupon-section .promo-text-lead {
+    font-size: 15px;
+    font-weight: 500;
+    color: #0b4566;
+    margin: 0;
+}
+
+.promo-coupon-section .promo-underline-link {
+    color: #0b7da3;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.promo-coupon-section .promo-text-sub {
+    font-size: 13.5px;
+    color: #557285;
+    margin: 0;
+}
+
+.promo-coupon-section .promo-text-sub strong {
+    color: #0b1e46;
+    font-weight: 700;
+}
+
+/* Centered Promo Code Pill Badge Object rules */
+.promo-coupon-section .promo-code-pill {
+    background-color: #1a7fa6; /* Rich solid blue button layer fill */
+    color: #ffffff;
+    padding: 8px 24px;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(26, 127, 166, 0.15);
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.promo-coupon-section .promo-code-pill:hover {
+    background-color: #126383;
+}
+
+.promo-coupon-section .promo-code-pill:active {
+    transform: scale(0.97); /* Micro-interaction feedback click push */
+}
+
+.promo-coupon-section .promo-code-text {
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.promo-coupon-section .promo-copy-icon {
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+/* ==========================================
+   MOBILE RESPONSIVE VIEWS
+   ========================================== */
+@media (max-width: 992px) {
+    /* Balance content rows horizontally on smaller laptop/tablets devices screens */
+    .promo-coupon-section .promo-coupon-container {
+        gap: 16px;
+        padding: 14px 20px;
+    }
+    
+    .promo-coupon-section .promo-text-lead,
+    .promo-coupon-section .promo-text-sub {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Stack elements beautifully vertically for smartphone displays profiles */
+    .promo-coupon-section .promo-coupon-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 24px 16px;
+        gap: 14px;
+    }
+
+    .promo-coupon-section .promo-code-pill {
+        width: max-content;
+        padding: 10px 32px; /* Plumper buttons sizing to ease mobile finger clicks touches */
+    }
+}
+
+
+/* ==========================================================================
+   DASHBOARD PRODUCTS MULTI-COLUMN DESIGN SYSTEM
+   ========================================================================== */
+
+.dashboard-products-section {
+    padding: 40px 20px;
+    background-color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.dp-container {
+    max-width: 1320px;
+    margin: 0 auto;
+}
+
+/* Core Layout Config Grid */
+.dp-grid-layout {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) 340px; /* 3 Equal list columns + 1 fixed deal column */
+    gap: 10px;
+    align-items: start;
+}
+
+/* ==========================================================================
+   MINI PRODUCT CARD LIST COLUMNS STYLING
+   ========================================================================== */
+.dp-list-column {
+    background-color: #ffffff;
+    border: 1px solid #f0f4f8;
+    border-radius: 16px;
+    padding: 24px 16px;
+}
+
+.dp-column-header {
+    background-color: #eaf5fc; /* Soft theme pastel blue title ribbon block */
+    padding: 12px 16px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* Creative Accent Tab Highlight line under Header Title text */
+.dp-column-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 16px;
+    width: 60px;
+    height: 3px;
+    background-color: #0b7da3;
+    border-radius: 3px;
+}
+
+.dp-column-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0b1e46;
+    margin: 0;
+}
+
+.dp-list-items {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Horizontal Mini Card Component Layout */
+.dp-mini-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.dp-mini-card:hover {
+    border-color: #e2e8f0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    transform: translateX(4px); /* Playful nudge forward response interaction */
+}
+
+.dp-mini-img-box {
+    width: 75px;
+    height: 75px;
+    border: 1px solid #f0f4f8;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    background: #ffffff;
+    flex-shrink: 0;
+}
+
+.dp-mini-img-box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.dp-mini-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.dp-mini-rating {
+    font-size: 11px;
+    color: #7d879c;
+    font-weight: 500;
+}
+
+.dp-star {
+    color: #ffa800;
+}
+
+.dp-count {
+    color: #a1a1a1;
+}
+
+.dp-mini-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #2b3445;
+    margin: 0;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.dp-mini-price {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+}
+
+.dp-mini-price .dp-current {
+    font-weight: 700;
+    color: #0b1e46;
+}
+
+.dp-mini-price .dp-old {
+    color: #a1a1a1;
+    text-decoration: line-through;
+}
+
+
+
+
+/* ==========================================================================
+   DEALS OF THE WEEK BIG CARD STYLING
+   ========================================================================== */
+.dp-deal-card {
+    background-color: #ffffff;
+    border: 1px solid #f0f4f8;
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.dp-deal-main-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: #0b1e46;
+    margin: 0 0 16px 0;
+}
+
+/* Countdown Row Component System Layout */
+.dp-deal-countdown {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.dp-countdown-box {
+    background-color: #0b7da3;
+    color: #ffffff;
+    border-radius: 6px;
+    padding: 8px 4px;
+    min-width: 46px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.dp-countdown-box strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.dp-deal-countdown .dp-sep {
+    color: #0b7da3;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.dp-deal-promo-text {
+    font-size: 12px;
+    color: #a1a1a1;
+    margin: 0 0 20px 0;
+}
+
+/* Centered Deal Image display layer */
+.dp-deal-img-wrapper {
+    width: 100%;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dp-deal-img-wrapper img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+}
+
+.dp-deal-card:hover .dp-deal-img-wrapper img {
+    transform: scale(1.06);
+}
+
+.dp-deal-meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.dp-deal-stars {
+    color: #ffa800;
+    font-size: 12px;
+}
+
+.dp-deal-review-count {
+    color: #7d879c;
+    margin-left: 2px;
+}
+
+.dp-deal-pricing {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+}
+
+.dp-deal-current {
+    font-size: 18px;
+    font-weight: 800;
+    color: #e54d4d; /* Highlighting deal status pricing metrics via callout red */
+}
+
+.dp-deal-old {
+    font-size: 13px;
+    color: #a1a1a1;
+    text-decoration: line-through;
+}
+
+.dp-deal-product-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0b1e46;
+    line-height: 1.5;
+    margin: 0 0 10px 0;
+}
+
+.dp-deal-stock-status {
+    font-size: 12px;
+    color: #7d879c;
+    margin: 0 0 8px 0;
+}
+
+/* Completion indicator stock channel bar styles */
+.dp-deal-progress-wrapper {
+    margin-bottom: 10px;
+}
+
+.dp-deal-progress-bar {
+    width: 100%;
+    height: 6px;
+    background-color: #f0f4f8;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 6px;
+}
+
+.dp-deal-progress-fill {
+    height: 100%;
+    background-color: #27bc7d; /* Green tracking filling meters channel */
+    border-radius: 10px;
+}
+
+.dp-deal-available-text {
+    font-size: 12px;
+    color: #7d879c;
+}
+
+.dp-deal-available-text strong {
+    color: #0b1e46;
+}
+
+/* Action Execution button styling wrapper */
+.dp-deal-add-btn {
+    width: 100%;
+    background-color: #27bc7d;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 14px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.dp-deal-add-btn:hover {
+    background-color: #1f9e67;
+}
+
+/* ==========================================================================
+   BREAKPOINT RESPONSIVENESS SYSTEM MEDIA QUERIES
+   ========================================================================== */
+
+/* Laptops & Tablets Landscape (Max 1200px) */
+@media (max-width: 1200px) {
+    .dp-grid-layout {
+        grid-template-columns: repeat(2, 1fr); /* Collapses structure matrix down into a standard 2x2 grid block */
+    }
+}
+
+/* Small Tablets Viewport (Max 768px) */
+@media (max-width: 768px) {
+    .dp-grid-layout {
+        grid-template-columns: 1fr; /* Stacks all four columns purely vertically */
+        gap: 20px;
+    }
+    
+    .dp-deals-column {
+        order: -1; /* Smart UX Override: Elevates the high-priority limited Deal section to the top of the mobile column list */
+    }
+    
+    .dp-dashboard-products-section {
+        padding: 24px 12px;
+    }
+}
+/* ==========================================================================
+   SHOP BY BRANDS CONTINUOUS CAROUSEL SYSTEM
+   ========================================================================== */
+
+.brands-carousel-section {
+    padding: 30px 20px;
+    background-color: #ffffff;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.bc-container {
+    max-width: 1320px;
+    margin: 0 auto;
+}
+
+/* Header Area Elements */
+.bc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.bc-section-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0b1e46; /* Matching navy brand layout tone */
+    margin: 0;
+}
+
+.bc-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.bc-view-all {
+    color: #666666;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.bc-view-all:hover {
+    color: #0b7da3;
+}
+
+.bc-slider-arrows {
+    display: flex;
+    gap: 8px;
+}
+
+.bc-arrow-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid #e2e8f0;
+    background: #ffffff;
+    color: #444444;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.bc-arrow-btn:hover {
+    background: #0b7da3;
+    color: #ffffff;
+    border-color: #0b7da3;
+}
+
+/* Slider Track Systems Viewport Architecture */
+.bc-slider-viewport {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 10px 0;
+}
+
+.bc-track {
+    display: flex;
+    gap: 32px; /* Uniform empty air padding gutters between logos */
+    width: max-content;
+    will-change: transform;
+}
+
+/* Individual Brand Image Block Item Configuration Box Styles */
+.bc-brand-card {
+    flex: 0 0 auto;
+    width: 135px; /* Clean size matching the circular graphic ratios */
+    height: 135px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #f2f6f9;
+    border-radius: 50%; /* Circle framing style mapping */
+    background-color: #ffffff;
+    padding: 16px;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Micro-Interaction Hover Shifts */
+.bc-brand-card:hover {
+    transform: translateY(-6px);
+    border-color: #0b7da3;
+    box-shadow: 0 10px 20px rgba(11, 125, 163, 0.06);
+}
+
+.bc-brand-card img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+}
+
+.bc-brand-card:hover img {
+    transform: scale(1.04);
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+    .brands-carousel-section {
+        padding: 24px 16px;
+    }
+    
+    .bc-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+    
+    .bc-header-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .bc-slider-viewport {
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch; /* Smooth momentum scrolling on iOS */
+        scrollbar-width: none; /* Hide scrollbar for Firefox */
+    }
+    
+    .bc-slider-viewport::-webkit-scrollbar {
+        display: none; /* Hide scrollbar for Chrome/Safari */
+    }
+    
+    .bc-track {
+        gap: 16px;
+        padding-right: 16px; /* Prevents last item clipping */
+    }
+    
+    .bc-brand-card {
+        width: 90px;
+        height: 90px;
+        padding: 10px;
+    }
+    
+    .bc-section-title {
+        font-size: 20px;
+    }
+    
+    /* Disable hover translate on touch devices to avoid double-tap bugs */
+    .bc-brand-card:hover {
+        transform: none;
+    }
+}
+
+
+
+
+/* ==========================================================================
+   DAILY BEST SELLS - RESPONSIVE CODE
+   ========================================================================== */
+
+.daily-best-sells {
+    padding: 60px 0;
+    background: #fff;
+}
+
+.sells-layout-wrapper {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr; /* Products take up more space */
+    gap: 24px;
+}
+
+/* --- LEFT GRID (2x2 Products) --- */
+.sells-products-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.horizontal-product-card {
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    background: #fff;
+    transition: all 0.3s ease;
+}
+
+.horizontal-product-card:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border-color: var(--primary-blue);
+}
+
+/* Left Side of Card (Image) */
+.hp-img-box {
+    width: 140px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.hp-img-box img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.horizontal-product-card:hover .hp-img-box img {
+    transform: scale(1.05);
+}
+
+.badge-sale {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    background: #eb2c29;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 8px 0px 8px 0px;
+    z-index: 2;
+}
+
+.hp-countdown {
+    font-size: 9px;
+    color: #0b7ea3;
+    font-weight: 600;
+    white-space: nowrap;
+    margin-top: 18px;
+}
+
+/* Right Side of Card (Content) */
+.hp-content-box {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.hp-price-row {
+    margin-bottom: 5px;
+}
+
+.old-price {
+    font-size: 13px;
+    text-decoration: line-through;
+    color: #999;
+    margin-right: 5px;
+}
+
+.new-price {
+    font-size: 16px;
+    font-weight: 700;
+    color: #222;
+}
+
+.hp-rating {
+    font-size: 12px;
+    margin-bottom: 8px;
+    color: #ffc107;
+}
+
+.hp-rating .score {
+    font-weight: 700;
+    color: #333;
+}
+
+.hp-rating .count {
+    color: #999;
+}
+
+.hp-title {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #222;
+    margin-bottom: 5px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.hp-vendor {
+    font-size: 11px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.vendor-name {
+    color: var(--primary-green);
+}
+
+.hp-sold {
+    font-size: 11px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.btn-hp-add {
+    margin-top: auto;
+    width: 100%;
+    padding: 8px;
+    background: #eaf6fa;
+    color: var(--primary-blue);
+    font-weight: 600;
+    font-size: 13px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-hp-add:hover {
+    background: var(--primary-blue);
+    color: #fff;
+}
+
+/* --- RIGHT BANNER (FULL IMAGE FILL FIX) --- */
+.best-sells-banner {
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 30px;
+    min-height: 520px; /* Forces enough height to keep the layout proportional */
+    background-image: url('https://marketpro.template.wowtheme7.com/assets/images/bg/special-snacks.png');
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.best-sells-banner:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+}
+
+.bs-banner-content {
+    z-index: 2;
+    position: relative;
+}
+
+.bs-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: #00263a;
+    line-height: 1.1;
+    margin-bottom: 10px;
+    max-width: 85%;
+}
+
+.bs-subtitle {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.bs-subtitle .expiry {
+    color: #999;
+}
+
+.btn-bs-shop {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #27bc7d;
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 14px;
+    width: fit-content;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.btn-bs-shop:hover {
+    background: #1f9d68;
+}
+
+/* Banner Image Bottom */
+.bs-banner-img {
+    margin-top: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.bs-banner-img img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* --- RESPONSIVE MEDIA QUERIES --- */
+@media (max-width: 1200px) {
+    .daily-best-sells {
+        padding: 40px 16px;
+    }
+
+    .sells-layout-wrapper {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .best-sells-banner {
+        display: flex; /* Kept visible but moved to the bottom of the grid */
+        min-height: 400px;
+        padding: 30px 20px;
+    }
+
+    .bs-title {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sells-products-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Transforms horizontal rows into a neat vertical card on small phones */
+    .horizontal-product-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 16px;
+        gap: 16px;
+    }
+
+    .hp-img-box {
+        width: 100%;
+        max-width: 160px;
+    }
+
+    .hp-countdown {
+        margin-top: 10px;
+    }
+
+    .hp-content-box {
+        width: 100%;
+    }
+
+    .hp-title {
+        font-size: 15px;
+    }
+
+    .hp-rating, .hp-price-row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btn-hp-add {
+        padding: 10px;
+    }
+}
+
+/* ==========================================================================
+   NEWSLETTER BANNER SECTION - RESPONSIVE CODE
+   ========================================================================== */
+
+.newsletter-section {
+    padding: 40px 0;
+    background: #fff;
+}
+
+.newsletter-wrapper {
+    background-color: #e5e7eb; /* Soft grey background fill */
+    border-radius: 16px;
+    padding: 60px 80px 0 80px; /* Zeroes bottom padding to ground the right graphic image */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* --- DIV 1: LEFT FORM LAYOUT --- */
+.newsletter-content-box {
+    flex: 1.2;
+    padding-bottom: 60px; /* Gives the text and form internal breathing room */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.newsletter-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #00263a; /* Matching deep dark blue theme headline color */
+    line-height: 1.3;
+    margin-bottom: 30px;
+    max-width: 520px;
+}
+
+/* Inline Form Structure */
+.newsletter-form {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.newsletter-input {
+    flex: 1;
+    background: #ffffff;
+    border: none;
+    outline: none;
+    height: 50px;
+    padding: 0 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #333;
+}
+
+.newsletter-input::placeholder {
+    color: #999;
+}
+
+/* Bright Solid Green Accent Button */
+.btn-newsletter-subscribe {
+    background-color: #27bc7d; /* Standard theme bright green color overlay */
+    color: #ffffff;
+    border: none;
+    outline: none;
+    height: 50px;
+    padding: 0 28px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.3s ease;
+}
+
+.btn-newsletter-subscribe:hover {
+    background-color: #21a46c;
+}
+
+.newsletter-agreement {
+    font-size: 12px;
+    color: #333333;
+    font-weight: 400;
+}
+
+/* --- DIV 2: RIGHT ASSET CONTAINER --- */
+.newsletter-image-box {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    height: 100%;
+}
+
+.newsletter-image-box img {
+    max-height: 280px; /* Constraints bounds cleanly inside wrapper canvas limits */
+    width: auto;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+/* Subtle image pop on section hover */
+.newsletter-wrapper:hover .newsletter-image-box img {
+    transform: scale(1.03);
+}
+
+/* --- BREAKPOINT SYSTEM RESPONSIVENESS --- */
+@media (max-width: 1100px) {
+    .newsletter-wrapper {
+        padding: 40px;
+    }
+    
+    .newsletter-content-box {
+        padding-bottom: 0; /* Remove baseline spacing when image vanishes */
+    }
+
+    .newsletter-title {
+        font-size: 28px;
+        max-width: 100%;
+    }
+
+    .newsletter-image-box {
+        display: none; /* Hides image graphics on mid viewports to center form utility layout */
+    }
+}
+
+@media (max-width: 768px) {
+    .newsletter-section {
+        padding: 20px 16px; /* Prevents edge-clipping on standard mobile screens */
+    }
+    
+    .newsletter-wrapper {
+        padding: 32px 24px;
+        border-radius: 12px; /* Marginally sharper corners to match tighter screen bounds */
+    }
+
+    .newsletter-title {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .newsletter-wrapper {
+        padding: 30px 20px;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px; /* Tighter distribution for stacked form flow */
+    }
+
+    .newsletter-input, 
+    .btn-newsletter-subscribe {
+        width: 100%;
+        height: 48px; /* Slight scale down to fit small touchscreen interfaces */
+        font-size: 15px; /* Boosts mobile text scale to bypass auto-zoom bugs on iOS Safari */
+    }
+    
+    .newsletter-agreement {
+        text-align: center; /* Balanced text presentation on narrow mobile widths */
+        line-height: 1.4;
+    }
+}
+
+
+/* =========================
+   11. E-COMMERCE FOOTER SYSTEM
+========================== */
+.main-footer {
+    background-color: #ffffff;
+    padding: 80px 0 30px 0;
+    border-top: 1px solid #f0f0f0;
+    font-family: "Poppins", sans-serif;
+}
+
+/* 6-Column Main Layout Definition Matrix */
+.footer-top-grid {
+    display: grid;
+    grid-template-columns: 1.5fr repeat(4, 1fr) 1.5fr; /* Keeps info & app columns wider */
+    gap: 30px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Column Headings */
+.footer-heading {
+    font-size: 16px;
+    font-weight: 700;
+    color: #00263a; /* Deep structural theme dark blue */
+    margin-bottom: 25px;
+    line-height: 1.2;
+}
+
+/* --- COLUMN 1: COMPANY DESCRIPTION INFO --- */
+.footer-logo img {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.footer-desc {
+    font-size: 14px;
+    color: #666666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    max-width: 240px;
+}
+
+.footer-contact-details p {
+    font-size: 14px;
+    color: #222222;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.footer-contact-details p a {
+    color: #222222;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-contact-details p a:hover {
+    color: var(--primary-blue);
+}
+
+/* --- COLUMNS 2, 3, 4, 5: LINKS DIRECTORY TREES --- */
+.footer-links-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-links-list li a {
+    font-size: 14px;
+    color: #555555;
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.footer-links-list li a:hover {
+    color: var(--primary-blue);
+    padding-left: 4px; /* Subtle responsive micro-interaction indicator */
+}
+
+/* --- COLUMN 6: APPLICATION INTEGRATION AND PAYMENTS --- */
+.app-text {
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 20px;
+}
+
+.app-download-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.qr-code-box {
+    width: 70px;
+    height: 70px;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qr-code-box img {
+    max-width: 100%;
+    height: auto;
+}
+
+.store-buttons-box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Standard Minimal Store Pill Outline Asset Configurations */
+.btn-store-download {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #e5e5e5;
+    background: #ffffff;
+    padding: 6px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #222222;
+    min-width: 135px;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-store-download:hover {
+    border-color: var(--primary-blue);
+    background-color: #fafafa;
+}
+
+.btn-store-download i {
+    font-size: 18px;
+    color: #222222;
+}
+
+.btn-store-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.btn-store-text span {
+    font-size: 9px;
+    color: #777777;
+    text-transform: uppercase;
+}
+
+.btn-store-text strong {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.payment-gateways img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- BOTTOM BAR SYSTEMS (COPYRIGHT AND SOCIAL LINKS) --- */
+.footer-bottom-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 30px;
+    margin-top: 20px;
+}
+
+.copyright-text {
+    font-size: 14px;
+    color: #666666;
+}
+
+.author-link {
+    color: var(--primary-green); /* Highlights development team label matching image */
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* Social Icon Round Anchor Assemblies */
+.footer-social-links {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-social-links a {
+    width: 36px;
+    height: 36px;
+    background-color: #f4f6f8;
+    color: #0b7ea3; /* Matches primary branding theme overlay palettes */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.footer-social-links a:hover {
+    background-color: var(--primary-blue);
+    color: #ffffff;
+}
+
+/* --- MASTER VIEWPORT BREAKPOINT MEDIA QUERIES --- */
+@media (max-width: 1200px) {
+    .footer-top-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-top-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .footer-bottom-bar {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-top-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .footer-logo, .footer-desc, .app-download-wrapper {
+        align-self: center;
+        justify-content: center;
+    }
+}
